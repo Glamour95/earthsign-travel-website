@@ -171,10 +171,8 @@
       </article>
 
     </div>
-    
-        <hr style="border: none; border-top: 2px solid var(--foam); margin: 50px 0; opacity: 0.5;">
-      </section>
-
+  </section>
+  
     <section id="global-regions" style="margin-top:22px">
     <h2 style="text-align:center;color:var(--sea-deep)">Where would you like to go?</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px">
@@ -205,18 +203,14 @@
     </div>
   </section>
 
-
-  
-  
-    
     <section id="bali-specials" style="margin-top:22px">
     <h2 style="text-align:center;color:var(--sea-deep)">Bali Travel Specials</h2>
-    
+    
         <div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border-left:5px solid var(--coral);margin-bottom:30px;">
       <p style="margin-top:0;">If you’re looking for a tropical holiday that’s all about adventure, relaxation and exploring, then consider one of our **Bali specials**. Our Bali special packages are filled with incredible experiences – like forest explorations, visiting spiritual temples, lazing on beautiful beaches and diving among manta rays - offering the perfect alternative holiday to the usual island escape.</p>
       <p style="font-weight:600;margin-bottom:0;color:var(--sea-mid);">Chat to one of our experienced travel consultants either on live chat or via Whatsapp, and let them find the perfect Bali special to suit your needs, budget and travel dreams! It’s time for adventure holiday in Bali!</p>
     </div>
-    
+    
     <div class="packages" style="grid-template-columns:1fr;">
 
             <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
@@ -289,7 +283,7 @@
               <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
           </div>
       </article>
-    
+    
             <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
           <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
             <h3 style="margin-top:0;color:var(--sea-deep);">4 Star Bali Holiday (Kalapa Boutique Resort & Spa)</h3>
@@ -329,12 +323,12 @@
               <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
           </div>
       </article>
-    
+    
             <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
           <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
             <h3 style="margin-top:0;color:var(--sea-deep);">3 Star Dewi Sri Hotel Bali</h3>
             <p style="margin:4px 0;"><strong>7 nights</strong> | Dates: 02 Dec 25 to 10 Dec 25 | Book by: 30 Nov 25</p>
-            <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">Enquire for Price (Per Single)</div> 
+            <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">Enquire for Price (Per Single)</div> 
           </div>
           <div class="card-body" style="padding:0;display:block;">
               <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
@@ -369,7 +363,7 @@
               <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
           </div>
       </article>
-    
+      
     </div>
   </section>
 
@@ -420,54 +414,146 @@
           </div>
         </div>
 
-        <div style="margin-top:12px;text-align:right">
-          <button type="submit" class="btn">Search Availability</button>
-        </div>
+        <div style="margin-top:10px"><button class="btn" type="submit">Search Availability</button></div>
       </form>
+
+      <div style="margin-top:12px;text-align:center">
+        <form action="https://www.payfast.co.za/eng/process" method="post" style="display:inline-block">
+          <input type="hidden" name="merchant_id" value="27403727">
+          <input type="hidden" name="merchant_key" value="">
+          <input type="hidden" name="amount" value="100">
+          <input type="hidden" name="item_name" value="Earthsign Travel Booking">
+          <button class="btn" type="submit">Pay Now with PayFast</button>
+        </form>
+      </div>
     </div>
   </section>
 
     <section id="contact" style="margin-top:22px">
-    <h2 style="text-align:center;color:var(--sea-deep)">Contact Your Host</h2>
-    <div class="host-card" style="margin-bottom:20px;">
-      <img src="professional photo.jpg" alt="Glamour Maphanga, Host" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid white; margin-bottom: 15px;">
-      <h3>Glamour Maphanga</h3>
-      <p style="color: var(--foam); margin: 0;">For villa bookings, package customization, and direct inquiries.</p>
+    <h2 style="text-align:center;color:var(--sea-deep)">Contact Us</h2>
+
+    <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px">
+      <div class="host-card" style="max-width:360px">
+        <img src="professional photo.jpg" alt="Glamour Maphanga" loading="lazy" style="width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,.12)">
+        <h3 style="margin:8px 0 4px;">Glamour Maphanga</h3>
+        <p style="margin:0">Host & bookings manager — Phalaborwa region</p>
+        <p style="margin-top:10px;font-weight:700">Phone: 073 740 9310</p>
+      </div>
+
+      <form id="contact-form" style="max-width:560px;flex:1;min-width:260px;" aria-label="Contact form">
+        <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
+        <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
+        <input type="tel" name="phone" placeholder="Your phone" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
+        <textarea name="message" placeholder="How can we help?" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit">Send Message</button><button type="button" class="btn secondary" onclick="location.href='tel:0737409310'">Call Now</button></div>
+      </form>
     </div>
-    <form id="contact-form" onsubmit="event.preventDefault(); fallbackMailto(this);" style="max-width:600px; margin:auto;">
-      <label for="contact-name" style="color:var(--sea-deep)">Your Name</label>
-      <input id="contact-name" name="name" type="text" placeholder="Your Name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--foam);margin-bottom:10px">
-      <label for="contact-email" style="color:var(--sea-deep)">Your Email</label>
-      <input id="contact-email" name="email" type="email" placeholder="Your Email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--foam);margin-bottom:10px">
-      <label for="contact-phone" style="color:var(--sea-deep)">Your Phone</label>
-      <input id="contact-phone" name="phone" type="tel" placeholder="Your Phone (Optional)" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--foam);margin-bottom:10px">
-      <label for="contact-message" style="color:var(--sea-deep)">Message</label>
-      <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--foam);margin-bottom:20px;resize:vertical"></textarea>
-      <button type="submit" class="btn" style="width:100%">Send Message</button>
-    </form>
+
+  </section>
+
+    <section style="margin-top:22px">
+    <h3 style="text-align:center">Classic (Original) File Preview</h3>
+    <p style="text-align:center;color:#2b6b67">If you want the original site appearance, view the file below. This is a preview only — your live site remains the modern, fully-controlled version unless you choose to publish the classic HTML instead.</p>
+        <div style="max-width:1100px;margin:12px auto;">
+      <iframe src="/mnt/data/html.index" title="Original site preview" style="width:100%;height:640px;border:1px solid #ddd;border-radius:8px"></iframe>
+    </div>
   </section>
 
 </main>
 
+<section id="packages" class="container" style="margin-top:40px;">
+  <h2 style="font-size:28px;font-weight:700;margin-bottom:20px;">Travel Packages</h2>
+
+    <div class="package-card" style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,0.08);margin-bottom:30px;">
+    <h3 style="margin-top:0;font-size:24px;color:var(--sea-mid);">Costa Rica Adventure with Costsaver</h3>
+    <p><strong>7 days</strong><br>
+    <strong>02 May 26 to 03 Jul 26</strong><br>
+    <strong>Book by 04 Dec 25</strong></p>
+
+    <p>Discover bubbling mud pools, lush rainforests filled with wildlife, and the power of an active volcano on this thrilling journey. Begin in San José, the cultural heart of Costa Rica, then visit turtle nesting grounds and stroll high above the treetops on a rainforest sky walk for lasting memories.</p>
+
+    <details style="margin-top:15px;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Overview</summary>
+      <p>7 Day Costsaver Guided Holiday<br>
+      6 Nights in cherry-picked hotels<br>
+      6 Breakfasts, 2 Dinners<br>
+      Luxury coach transport<br>
+      Expert Travel Director & driver<br>
+      Audio headsets for sightseeing<br>
+      Orientation tours<br>
+      Taxes, service charges & baggage handling</p>
+    </details>
+
+    <details style="margin-top:15px;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes</summary>
+      <ul>
+        <li>7 Day Costsaver Guided Holiday</li>
+        <li>6 Nights in cherry-picked hotels</li>
+        <li>6 Breakfasts, 2 Dinners</li>
+        <li>Luxury air‑conditioned coach</li>
+        <li>Travel Director and driver</li>
+        <li>Orientation tours</li>
+        <li>Audio headsets for sightseeing</li>
+      </ul>
+    </details>
+
+    <details style="margin-top:15px;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Excludes</summary>
+      <ul>
+        <li>Flights</li>
+        <li>Arrival/Departure transfers</li>
+        <li>Visas & Travel Insurance</li>
+        <li>Personal expenses</li>
+        <li>Optional Experiences (additional cost)</li>
+      </ul>
+    </details>
+
+    <details style="margin-top:15px;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Itinerary</summary>
+      <ol>
+        <li>Day 1: Arrive San José</li>
+        <li>Day 2: San José – Monteverde</li>
+        <li>Day 3: Monteverde sightseeing & free time</li>
+        <li>Day 4: Monteverde – Arenal</li>
+        <li>Day 5: Arenal full day sightseeing</li>
+        <li>Day 6: Arenal free time</li>
+        <li>Day 7: Return to San José</li>
+      </ol>
+    </details>
+
+    <details style="margin-top:15px;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
+      <p style="white-space:pre-wrap;">Prices per person, twin share, discounts included. Subject to availability & exchange rate changes. Visas & travel insurance required. Full payment due 120 days prior to departure. Optional experiences available at additional cost. High‑season supplements may apply. Cash prices only. Other conditions may apply. E&OE.</p>
+    </details>
+
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
+      <p style="font-size:20px;font-weight:700;color:var(--sea-deep);margin:0;">From <span style="color:var(--coral);">R29,825</span></p>
+      <button class="btn" style="padding:12px 20px;font-size:16px;">Enquire Now</button>
+    </div>
+
+  </div>
+</section>
+
 <footer>
   <div class="container">
-    <p>Earthsign Travel Agency | Phone: 073 740 9310 | Email: earthsignlistings@gmail.com</p>
-    <p>&copy; 2025 Earthsign Travel. All Rights Reserved.</p>
+    <p style="margin:0">Earthsign Travel Agency | Phone: 073 740 9310 | Email: earthsignlistings@gmail.com</p>
+    <p style="margin:6px 0 0 0">&copy; 2025 Earthsign Travel. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  // Function to handle theme switching
-  document.getElementById('classicView').addEventListener('click', function() {
-    document.body.classList.add('classic');
-    this.setAttribute('aria-pressed', 'true');
-    document.getElementById('modernView').setAttribute('aria-pressed', 'false');
-  });
-
-  document.getElementById('modernView').addEventListener('click', function() {
+  // Toggle between modern & classic styles
+  const modernBtn = document.getElementById('modernView');
+  const classicBtn = document.getElementById('classicView');
+  modernBtn.addEventListener('click', ()=>{
     document.body.classList.remove('classic');
-    this.setAttribute('aria-pressed', 'true');
-    document.getElementById('classicView').setAttribute('aria-pressed', 'false');
+    modernBtn.setAttribute('aria-pressed','true');
+    classicBtn.setAttribute('aria-pressed','false');
+  });
+  classicBtn.addEventListener('click', ()=>{
+    document.body.classList.add('classic');
+    modernBtn.setAttribute('aria-pressed','false');
+    classicBtn.setAttribute('aria-pressed','true');
   });
 
   // Internal search: redirect to internal results page with query string (under your control)
@@ -483,24 +569,17 @@
   }
 
   // Contact form simple handler (opens mailto as fallback)
-  function fallbackMailto(form) {
-    const name = form.name.value || '';
-    const email = form.email ? form.email.value : '';
-    const phone = form.phone ? form.phone.value : '';
-    const message = form.message ? form.message.value : '';
-
-    if(!name || !email || !message){
-      alert('Please complete Name, Email, and Message fields.');
-      return;
-    }
-
-    const subject = `Inquiry from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`;
-    const mailtoLink = `mailto:earthsignlistings@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-  }
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = this.name.value || '';
+    const email = this.email ? this.email.value : '';
+    const phone = this.phone ? this.phone.value : '';
+    const message = this.message ? this.message.value : '';
+    if(!name||!email||!message){alert('Please complete name, email and message');return}
+    const subject = encodeURIComponent('Website inquiry from ' + name);
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:earthsignlistings@gmail.com?subject=${subject}&body=${body}`;
+  });
 </script>
-
 </body>
 </html>
