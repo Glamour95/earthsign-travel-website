@@ -19,7 +19,7 @@ layout: default
         body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:var(--bg);color:var(--text);line-height:1.5}
         .container{max-width:1100px;margin:0 auto;padding:20px}
 
-        /*  NEW HEADER CSS: For clean, single-line layout  */
+        /* 🎯 NEW HEADER CSS: For clean, single-line layout 🎯 */
         .main-header {
             display: flex;
             justify-content: space-between;
@@ -481,6 +481,7 @@ layout: default
     <section id="custom-booking" style="margin-top:22px">
         <div class="search-card">
             <h2 style="margin-top:0;color:var(--sand)">Search Stays (Internal)</h2>
+            <p style="color:var(--sand); margin-top:-5px;">*This will submit an **enquiry** to check availability for your selected dates.*</p>
             <form id="internalSearchForm" onsubmit="event.preventDefault(); internalSearch();" style="max-width:680px;margin:0 auto">
                 <label for="dest">Destination</label>
                 <input id="dest" name="dest" type="text" placeholder="e.g., Phalaborwa" required>
@@ -500,10 +501,19 @@ layout: default
                     </div>
                 </div>
 
-                <div style="margin-top:10px"><button class="btn" type="submit">Search Availability</button></div>
+                <div style="margin-top:10px"><button class="btn" type="submit">Check Availability & Send Enquiry</button></div>
             </form>
 
+            <div style="margin-top:12px;text-align:center">
+                <form action="https://www.payfast.co.za/eng/process" method="post" style="display:inline-block">
+                    <input type="hidden" name="merchant_id" value="27403727">
+                    <input type="hidden" name="merchant_key" value="">
+                    <input type="hidden" name="amount" value="100">
+                    <input type="hidden" name="item_name" value="Earthsign Travel Booking">
+                    <button class="btn" type="submit">Pay Now with PayFast</button>
+                </form>
             </div>
+        </div>
     </section>
 
     <section id="contact" style="margin-top:22px">
@@ -633,16 +643,31 @@ layout: default
         classicBtn.setAttribute('aria-pressed','true');
     });
 
-    // Internal search: redirect to internal results page with query string (under your control)
+    // 🎯 UPDATED Internal search: now opens a mailto link with search criteria 🎯
     function internalSearch(){
         const dest = document.getElementById('dest').value.trim();
-        const checkin = document.getElementById('checkin').value;
-        const checkout = document.getElementById('checkout').value;
+        const checkin = document.getElementById('checkin').value || 'Not specified';
+        const checkout = document.getElementById('checkout').value || 'Not specified';
         const guests = document.getElementById('guests').value;
+        
         if(!dest){alert('Please enter a destination');return}
-        const url = `/search-results.html?destination=${encodeURIComponent(dest)}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`;
-        // Redirect to your own results page (you own & control this page)
-        window.location.href = url;
+        
+        const subject = encodeURIComponent('Availability Request: ' + dest);
+        const body = encodeURIComponent(
+            `Hello Earthsign Travel,
+            \nI would like to check the availability for a stay with the following details:
+            \nDestination: ${dest}
+            \nCheck-in Date: ${checkin}
+            \nCheck-out Date: ${checkout}
+            \nNumber of Guests: ${guests}
+            \n\nPlease reply to this email with options.`
+        );
+        
+        // Opens mail client
+        window.location.href = `mailto:earthsignlistings@gmail.com?subject=${subject}&body=${body}`;
+
+        // Optional: provide success message since mailto opens external app
+        alert('Thank you! Your availability enquiry has been prepared in your email app. Please send the email to complete the enquiry.');
     }
 
     // Contact form simple handler (opens mailto as fallback)
