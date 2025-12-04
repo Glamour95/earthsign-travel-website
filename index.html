@@ -569,6 +569,23 @@ layout: default
     window.location.href = url;
   }
 
+  <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast_form">
+
+    <input type="hidden" name="merchant_id" value="27403727">
+    <input type="hidden" name="merchant_key" value="63nvx46ags8xz">
+    
+    <input type="hidden" name="amount" value="20400.00">
+    <input type="hidden" name="item_name" value="Sefapane Cycad Villa - 3 Night Stay">
+    
+    <input type="hidden" name="return_url" value="https://earthsigntravels.co.za/success.html">
+    <input type="hidden" name="cancel_url" value="https://earthsigntravels.co.za/cancel.html">
+    <input type="hidden" name="notify_url" value="https://earthsigntravels.co.za/itn-disabled.html">
+    
+    <button type="submit" style="background:#ff8f3c; color:white; border:none; padding:15px 30px; cursor:pointer; border-radius:8px; font-size:16px; font-weight:bold;">
+        Book Now & Pay R20,400.00
+    </button>
+</form>
+  
   // Contact form simple handler (opens mailto as fallback)
   document.getElementById('contact-form').addEventListener('submit', function(e){
     e.preventDefault();
@@ -584,4 +601,5 @@ layout: default
 </script>
 </body>
 </html>
+
 
