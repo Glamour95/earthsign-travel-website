@@ -391,7 +391,39 @@
         <section id="sefapane-booking" style="text-align: center; border-bottom: none;">
             <h3>Secure Your Sefapane Cycad Villa Booking</h3>
             <p>This is a direct, static payment link for the <strong>Sefapane Cycad Villa - 3 Night Stay</strong>.</p>
-            <a href="https://payfast.za/pay/2349753" target="_blank" class="payfast-button">Pay R20,400.00 Now via PayFast</a>
+            <a href="#bank-details" class="payfast-button" style="background: #00796B;">Pay R20,400.00 Now via EFT</a>
+        </section>
+
+        <section id="bank-details" style="padding: 20px; background-color: #e0f2f1; border: 1px solid #b2dfdb; border-radius: 5px; margin-bottom: 20px;">
+            <h2>Payment Instructions: EFT/Bank Transfer</h2>
+            <p>Thank you for booking with Earthsign Travel Agency. Please use the details below for EFT payments for your booking. **Always use your Surname & Booking Date (DDMM) as the reference.**</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; background: white;">
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Bank Name</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Standard Bank</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Account Holder</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">The Director Earthsign Enterprize (Pty) Ltd</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Account Number</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">1024 438 5872</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Branch Name</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Phalaborwa (2952)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Account Type</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Current</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; background-color: #e0f2f1;">Reference</td>
+                    <td style="border: 1px solid #ccc; padding: 10px; font-weight: bold; color: #D84315;">Surname & Booking Date (e.g., SMITH1503)</td>
+                </tr>
+            </table>
+            <p style="margin-top: 15px; font-style: italic;">Kindly send proof of payment (POP) to <a href="mailto:earthsignlistings@gmail.com">earthsignlistings@gmail.com</a> to confirm your booking.</p>
         </section>
 
         <section id="about">
@@ -663,7 +695,7 @@
             </form>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="https://payfast.za/pay/2349753" target="_blank" class="payfast-button" style="background: #3B92D0;">Pay Now with PayFast</a>
+                <a href="#bank-details" class="payfast-button" style="background: #00796B;">Pay Now via EFT</a>
             </div>
         </section>
 
@@ -761,5 +793,58 @@
         </div>
     </div>
 </body>
+<script>
+    // --- AI Reference Number Generator ---
+    function generateReference() {
+        const date = new Date();
+        const year = String(date.getFullYear()).slice(-2);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const random = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
+        
+        // Format: ES-[YYMMDD]-[RANDOM]
+        const reference = `ES-${year}${month}${day}-${random}`;
+        return reference;
+    }
 
+    // --- Update Elements on Load ---
+    const bookingRefElement = document.getElementById('booking-reference');
+    const reference = generateReference();
+    
+    if (bookingRefElement) {
+        bookingRefElement.textContent = reference;
+    }
+    
+    // --- Update Mailto Links (for automatic email reference) ---
+    function updateMailtoLinks() {
+        const mailtoLink = "mailto:earthsignlistings@gmail.com";
+        const subject = `Booking Enquiry - Ref: ${reference}`;
+        const newMailto = `${mailtoLink}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Dear Earthsign Travel,\n\nI am sending an enquiry for a package. My booking reference is " + reference + ".\n\n[Please list your travel details here, or mention the package name and date.]\n\nKind regards,\n[Your Name]")}`;
+        
+        // Find the "Send Message" contact link and update it
+        const contactLink = document.querySelector('.contact-item a[href^="mailto:"]');
+        if (contactLink) {
+            contactLink.href = newMailto;
+        }
+
+        // Find the "Enquire Now" buttons and update their links to use the reference
+        const enquireBtns = document.querySelectorAll('.enquire-btn');
+        enquireBtns.forEach(btn => {
+            btn.href = newMailto;
+        });
+        
+        // Find the "Request Booking" buttons and update their links
+        const requestBtns = document.querySelectorAll('.package a.btn');
+        requestBtns.forEach(btn => {
+            // Only update those pointing to #contact to redirect to the mailto link
+            if (btn.getAttribute('href') === '#contact') {
+                btn.href = newMailto;
+            }
+        });
+    }
+
+    // Run the mailto update
+    updateMailtoLinks();
+
+</script>
 </html>
