@@ -685,3 +685,232 @@ layout: default
 </script>
 </body>
 </html>
+<div id="earthsign-chat-widget">
+    <div id="chat-toggle-button">
+        <span class="chat-icon">💬</span>
+    </div>
+    <div id="chat-window" class="hidden">
+        <div id="chat-header">
+            Earthsign Assistant 🇿🇦
+        </div>
+        <div id="chat-body">
+            <div class="message bot-message">
+                Hello! I'm the Earthsign Assistant, your expert on South African travel. How can I help you discover your perfect safari, city, or coastal trip today?
+            </div>
+        </div>
+        <div id="chat-footer">
+            <input type="text" id="user-input" placeholder="Ask a question..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* CSS for the Chat Widget */
+#earthsign-chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+#chat-toggle-button {
+    width: 60px;
+    height: 60px;
+    background-color: #008080; /* Earthsign Teal */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#chat-toggle-button:hover {
+    background-color: #006666;
+}
+
+.chat-icon {
+    font-size: 28px;
+    line-height: 1;
+    color: white;
+}
+
+#chat-window {
+    width: 300px;
+    height: 400px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#chat-window.hidden {
+    display: none;
+}
+
+#chat-header {
+    background-color: #008080;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#chat-body {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background-color: #e0f2f2; /* Light teal */
+    color: #333;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.user-message {
+    background-color: #008080;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+#chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#send-button {
+    background-color: #008080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-button:hover {
+    background-color: #006666;
+}
+</style>
+
+<script>
+// JAVASCRIPT FOR CHAT FUNCTIONALITY
+document.addEventListener('DOMContentLoaded', () => {
+    const chatButton = document.getElementById('chat-toggle-button');
+    const chatWindow = document.getElementById('chat-window');
+    const chatBody = document.getElementById('chat-body');
+    const inputField = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // Toggle Chat Window
+    chatButton.addEventListener('click', () => {
+        chatWindow.classList.toggle('hidden');
+        if (!chatWindow.classList.contains('hidden')) {
+            inputField.focus();
+        }
+    });
+
+    // Send message on button click
+    sendButton.addEventListener('click', sendMessage);
+
+    // Send message on Enter key
+    inputField.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Function to add a message to the chat
+    function appendMessage(text, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${sender}-message`);
+        messageElement.textContent = text;
+        chatBody.appendChild(messageElement);
+        // Scroll to the bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Main send logic
+    function sendMessage() {
+        const userInput = inputField.value.trim();
+        if (userInput === '') return;
+
+        appendMessage(userInput, 'user');
+        inputField.value = '';
+
+        // Generate Bot Response after a slight delay
+        setTimeout(() => {
+            const botResponse = getBotResponse(userInput);
+            appendMessage(botResponse, 'bot');
+        }, 800);
+    }
+
+    // CORE KNOWLEDGE & RESPONSE LOGIC (The "AI" part)
+    function getBotResponse(input) {
+        const lowerInput = input.toLowerCase();
+
+        // 1. Booking/Enquiry Keywords
+        if (lowerInput.includes('book') || lowerInput.includes('enquire') || lowerInput.includes('reserve')) {
+            return "Great! To help you book your custom trip, please provide: 1) What kind of trip (Safari, Coastal, or City)? 2) How many people? 3) Your desired travel dates. Our expert will then reach out to finalize the details.";
+        }
+
+        // 2. Pricing Keywords
+        if (lowerInput.includes('price') || lowerInput.includes('cost') || lowerInput.includes('affordable')) {
+            return "Our trips are highly personalized, from rugged bushveld adventures to luxury villa getaways, so prices vary. Please tell me your destination, duration, and desired accommodation level (budget, mid-range, or luxury) for an accurate estimate.";
+        }
+
+        // 3. Trip Type Keywords
+        if (lowerInput.includes('safari') || lowerInput.includes('big 5') || lowerInput.includes('bushveld')) {
+            return "Fantastic! Earthsign Travel excels in Big 5 safari and rugged bushveld adventures. Are you interested in a specific park or region, or would you like to explore our luxury villa getaway options?";
+        }
+
+        if (lowerInput.includes('coastal') || lowerInput.includes('beach') || lowerInput.includes('coastlines')) {
+            return "We specialize in pristine coastal trips and luxury villa getaways! Which coast interests you most: the Western Cape, the Garden Route, or KwaZulu-Natal?";
+        }
+        
+        if (lowerInput.includes('city') || lowerInput.includes('town')) {
+            return "Our personalized city packages cover vibrant South African destinations like Cape Town, Johannesburg, and Durban. Which city is on your bucket list?";
+        }
+
+        // 4. Contact/Human Handoff
+        if (lowerInput.includes('human') || lowerInput.includes('call') || lowerInput.includes('speak to')) {
+            return "I'm happy to escalate your query. You can reach our human travel experts directly via email at earthsignlistings@gmail.com or by phone at 073 740 9310. Thank you!";
+        }
+
+        // 5. General Greetings/Fallback
+        if (lowerInput.includes('hello') || lowerInput.includes('hi') || lowerInput.includes('hey')) {
+            return "Hello! I'm the Earthsign Assistant. We specialize in custom South African trips—safari, coastal, and city. What can I help you find?";
+        }
+
+        // Fallback Response
+        return "I apologize, I only have knowledge about Earthsign Travel's custom safari, coastal, and city packages. Could you try rephrasing your question about one of those topics, or would you like our human team's contact info?";
+    }
+});
+</script>
