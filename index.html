@@ -1,917 +1,765 @@
----
-layout: default
----
-<!doctype html>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Earthsign Travel — Full Control</title>
-    <meta name="description" content="Earthsign Travel — fully controlled website. Modern ocean/earth theme with option to switch to classic view.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthsign Travel - Your South African Travel Experts</title>
     <style>
-        /* MODERN (default) THEME - ocean / earth tones */
-        :root{
-            --sea-deep:#023b46;--sea-mid:#0e6b75;--sand:#e8d8c3;--coral:#ff8f3c;--foam:#bfe7df;--bg:#f7faf8;--text:#042023
-        }
-        *{box-sizing:border-box}
-        body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:var(--bg);color:var(--text);line-height:1.5}
-        .container{max-width:1100px;margin:0 auto;padding:20px}
-
-        /* 🎯 NEW HEADER CSS: For clean, single-line layout 🎯 */
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: var(--sea-deep); 
-            color: var(--foam); 
-            position:sticky;
-            top:0;
-            z-index:100;
-            box-shadow:0 6px 18px rgba(2,27,31,.12);
-        }
-
-        .logo-area {
-            display: flex; 
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            /* Assuming earthsign-logo.jpeg.jpeg is the name */
-            height: 50px; 
-            width: auto;
-        }
-
-        .slogan-container {
-            line-height: 1.1; 
-        }
-
-        .site-title {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--sand);
-        }
-
-        .site-slogan {
-            margin: 0;
-            font-size: 0.9em;
-            font-weight: 300;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-        }
-
-        .main-nav ul {
-            list-style: none;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header,
+        footer {
+            background: #00796B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #004D40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #00796B;
+        }
+
+        section {
+            padding: 20px 0;
+            border-bottom: #ddd 1px solid;
+        }
+
+        .hero {
+            background: url(safari.jpg) no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
             margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FFB300;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #FFD54F;
+        }
+
+        .package {
+            background: #e0f2f1;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #00796B;
             display: flex;
+            align-items: center;
             gap: 20px;
         }
 
-        .main-nav a {
+        .package img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .package-info {
+            flex-grow: 1;
+        }
+
+        .package-info h3 {
+            margin-top: 0;
+            color: #00796B;
+        }
+
+        .enquiry-form,
+        .search-form {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .enquiry-form label,
+        .search-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .enquiry-form input[type="text"],
+        .enquiry-form input[type="email"],
+        .enquiry-form textarea,
+        .search-form input[type="date"],
+        .search-form select,
+        .search-form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .contact-info img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid #00796B;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+
+        .contact-item .icon {
+            margin-right: 10px;
+            color: #00796B;
+        }
+
+        .payfast-button {
+            display: inline-block;
+            background: #3B92D0;
+            color: white;
+            padding: 12px 25px;
             text-decoration: none;
-            color: var(--foam);
-            font-weight: 600;
-            transition: color 0.3s;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
         }
 
-        .main-nav a:hover {
-            color: var(--coral);
+        .payfast-button:hover {
+            background: #2D7BBF;
         }
 
-        .view-switcher li {
-            font-weight: 300;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .package {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
-        /* 🎯 END NEW HEADER CSS 🎯 */
 
+        /* New Styles for Bali Specials */
+        .bali-specials {
+            background-color: #fff9c4;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border-left: 5px solid #ffcc00;
+        }
 
-        /* Hero */
-        .hero{display:grid;grid-template-columns:1fr;gap:18px;padding:28px 0}
-        @media(min-width:880px){.hero{grid-template-columns:1fr 380px}}
-        .hero h1{margin:0;color:var(--sea-deep);font-size:2rem}
-        .hero p{margin:8px 0 0;color:#235752}
+        .bali-special-item {
+            background: #fffde7;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ffeb3b;
+            border-radius: 5px;
+        }
 
-        /* Packages */
-        .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
-        .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,27,31,.06);display:flex;flex-direction:column}
-        .card img{width:100%;height:180px;object-fit:cover}
-        .card-body{padding:14px;flex:1;display:flex;flex-direction:column}
-        .card h3{margin:0 0 8px;color:var(--sea-mid)}
-        .price{font-weight:800;color:var(--coral);margin-top:auto}
+        .bali-special-item h4 {
+            color: #f57f17;
+            margin-top: 0;
+        }
 
-        /* Blog & Testimonials */
-        .blog-post{background:linear-gradient(180deg,#fff,#f7fffd);padding:16px;border-radius:12px;border-left:6px solid var(--sea-mid)}
-        .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+        .bali-special-details {
+            margin-top: 10px;
+        }
 
-        /* Booking form (internal) */
-        .search-card{background:var(--sea-mid);color:white;padding:18px;border-radius:12px}
-        .search-card label{display:block;font-size:.9rem;margin-bottom:6px}
-        .search-card input{width:100%;padding:10px;border-radius:8px;border:none;margin-bottom:10px}
-        .btn{background:var(--coral);color:white;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
-        .btn.secondary{background:transparent;color:var(--sea-mid);border:2px solid var(--sea-mid)}
+        .hotel-info h5 {
+            color: #00796B;
+            margin-bottom: 5px;
+        }
 
-        /* Contact */
-        .host-card{background:linear-gradient(90deg,var(--sea-deep),var(--sea-mid));color:var(--sand);padding:14px;border-radius:12px;text-align:center}
+        .hotel-info p {
+            font-size: 0.9em;
+        }
 
-        footer{padding:20px;text-align:center;color:#063236}
+        .enquire-btn {
+            display: inline-block;
+            background: #D84315;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
 
-        /* CLASSIC theme - restored original look (applied when body.classList contains 'classic') */
-        body.classic{background:#012a34;color:#fff}
-        body.classic header{background:#023c4a;color:#4bd1a0;border-bottom:3px solid #4bd1a0}
-        body.classic header h1{color:#4bd1a0}
-        body.classic nav a{color:#4bd1a0}
-        body.classic .card{background:#023c4a;border:1px solid #4bd1a0;color:white}
-        body.classic .card-body p{color:#d1f7ea}
-        body.classic .search-card{background:#012a34}
+        .enquire-btn:hover {
+            background: #BF360C;
+        }
 
-        /* small tweaks */
-        a:focus,button:focus,input:focus{outline:3px solid rgba(11,128,122,0.18);outline-offset:2px}
+        /* Styles for Inspiration Section */
+        .inspiration-card {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #00796B;
+        }
+
+        .inspiration-card h4 {
+            color: #00796B;
+            margin-top: 0;
+        }
+
+        .inspiration-card p {
+            font-size: 0.9em;
+        }
+
+        .testimonial {
+            background: #e0f7fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #00BCD4;
+        }
+
+        .testimonial blockquote {
+            margin: 0;
+            padding: 0;
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #00796B;
+        }
+
+        /* Search Form Custom Style */
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            align-items: end;
+        }
+
+        .search-form .search-btn {
+            grid-column: span 4;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .search-form .search-btn {
+                grid-column: span 1;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <header style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+            <img src="earthsign-logo.jpeg.jpeg" alt="Earthsign Travel Logo" style="height: 50px; border-radius: 50%;">
+            <div style="text-align: left;">
+                <h1 style="margin: 0; font-size: 2em; color: white;">Earthsign Travel</h1>
+                <p style="margin: 0; font-size: 1.1em; color: #FFB300;">Your premier South African Travel Experts</p>
+            </div>
+        </header>
 
-<header class="main-header">
-    <div class="logo-area">
-        <img src="earthsign-logo.jpeg.jpeg" alt="Earthsign Travel Logo" class="logo"> 
-        <div class="slogan-container">
-            <h1 class="site-title">EARTHSIGN LISTINGS</h1>
-            <p class="site-slogan">Custom South African Safaris & Coastal Trips</p>
-        </div>
-    </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#packages">Packages</a>
+            <a href="#inspiration">Inspiration</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#blog-testimonials">Inspiration</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        
-        <ul class="view-switcher">
-            <li>View:</li>
-            <li><button id="modernView" class="btn secondary" aria-pressed="true">Modern</button></li>
-            <li><button id="classicView" class="btn secondary">Classic</button></li>
-        </ul>
-    </nav>
-</header>
-<main class="container">
-    <section id="home" class="hero">
-        <div>
+        <section id="home" class="hero">
             <h1>Personalised Safaris & Coastal Escapes</h1>
             <p>We craft itineraries that match your pace and interests — from Kruger bush drives to Cape Town wine tours. Fully local, fully yours.</p>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-                <button class="btn" onclick="location.href='#packages'">Explore Packages</button>
-                <button class="btn secondary" onclick="location.href='#custom-booking'">Search Availability</button>
-            </div>
-        </div>
+            <a href="#packages" class="btn">Explore Packages</a>
+        </section>
 
-        <div>
-            <picture>
-                <source media="(min-width:880px)" srcset="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=60">
-                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=60" alt="African safari landscape" style="width:100%;height:260px;object-fit:cover;border-radius:12px" loading="lazy">
-            </picture>
-        </div>
-    </section>
+        <section id="search-availability">
+            <h2>Search Availability</h2>
+            <form class="search-form">
+                <div>
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" name="destination" placeholder="e.g., Cape Town, Kruger" required>
+                </div>
+                <div>
+                    <label for="check-in">Check-in</label>
+                    <input type="date" id="check-in" name="check-in" required>
+                </div>
+                <div>
+                    <label for="check-out">Check-out</label>
+                    <input type="date" id="check-out" name="check-out" required>
+                </div>
+                <div>
+                    <label for="guests">Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" value="1" required>
+                </div>
+                <button type="submit" class="btn search-btn">Check Availability & Send Enquiry</button>
+            </form>
+        </section>
 
-    <section style="margin: 30px 0; padding: 20px; background: var(--foam); border-radius: 12px; text-align: center;">
-        <h2 style="color: var(--sea-deep); margin-top: 0;">Secure Your Sefapane Cycad Villa Booking</h2>
-        <p>This is a direct, static payment link for the **Sefapane Cycad Villa - 3 Night Stay**.</p>
-        
-        <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast_form" style="display:inline-block;">
+        <section id="sefapane-booking" style="text-align: center; border-bottom: none;">
+            <h3>Secure Your Sefapane Cycad Villa Booking</h3>
+            <p>This is a direct, static payment link for the <strong>Sefapane Cycad Villa - 3 Night Stay</strong>.</p>
+            <a href="https://payfast.za/pay/2349753" target="_blank" class="payfast-button">Pay R20,400.00 Now via PayFast</a>
+        </section>
 
-            <input type="hidden" name="merchant_id" value="27403727">
-            <input type="hidden" name="merchant_key" value="63nvx46ags8xz">
-            
-            <input type="hidden" name="amount" value="20400.00">
-            <input type="hidden" name="item_name" value="Sefapane Cycad Villa - 3 Night Stay">
-            
-            <input type="hidden" name="return_url" value="https://earthsigntravels.co.za/success.html">
-            <input type="hidden" name="cancel_url" value="https://earthsigntravels.co.za/cancel.html">
-            <input type="hidden" name="notify_url" value="https://earthsigntravels.co.za/itn-disabled.html">
-            
-            <button type="submit" class="btn" style="padding: 15px 30px; font-size: 18px; border-radius: 4px;">
-                Pay R20,400.00 Now via PayFast
-            </button>
-        </form>
-    </section>
-    <section id="about" style="padding-top:6px">
-        <h2 style="color:var(--sea-deep)">About Us</h2>
-        <p style="max-width:900px">Earthsign Travel crafts memorable South African experiences — from high-end safaris to relaxed coastal retreats. We focus on comfort, authenticity and responsible travel.</p>
-    </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Earthsign Travel crafts memorable South African experiences — from high-end safaris to relaxed coastal retreats. We focus on comfort, authenticity and responsible travel.</p>
+        </section>
 
-    <section id="packages" style="margin-top:12px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Our South African Packages</h2>
-        <div class="packages" aria-live="polite">
+        <section id="packages">
+            <h2>Our South African Packages</h2>
 
-            <article class="card">
-                <img src="safari.jpg" alt="Kruger safari game viewing" loading="lazy">
-                <div class="card-body">
+            <div class="package">
+                <img src="game drive.jpg" alt="Kruger Safari" loading="lazy">
+                <div class="package-info">
                     <h3>Kruger Safari Adventure</h3>
                     <p>3-day safari with guided tours and luxury lodge stay. Experience the Big 5 in their natural habitat.</p>
-                    <div class="price">From R6,900 per person</div>
-                    <div style="margin-top:12px"><button class="btn" onclick="alert('Please contact us to book this package.');location.href='#contact'">Request Booking</button></div>
+                    <p><strong>From R6,900 per person</strong></p>
+                    <a href="#contact" class="btn">Request Booking</a>
                 </div>
-            </article>
+            </div>
 
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=60" alt="Cape Town" loading="lazy">
-                <div class="card-body">
+            <div class="package">
+                <img src="garden route.jpg" alt="Cape Town" loading="lazy">
+                <div class="package-info">
                     <h3>Cape Town Weekend Getaway</h3>
                     <p>2 nights in Cape Town with wine tour and Table Mountain excursion. Explore the Mother City.</p>
-                    <div class="price">From R5,500 per person</div>
-                    <div style="margin-top:12px"><button class="btn" onclick="location.href='#contact'">Request Booking</button></div>
+                    <p><strong>From R5,500 per person</strong></p>
+                    <a href="#contact" class="btn">Request Booking</a>
                 </div>
-            </article>
+            </div>
 
-            <article class="card">
-                <img src="garden route.jpg" alt="Garden Route" loading="lazy">
-                <div class="card-body">
+            <div class="package">
+                <img src="hiking.jpg" alt="Garden Route" loading="lazy">
+                <div class="package-info">
                     <h3>Garden Route Escape</h3>
                     <p>5-day coastal adventure including Knysna, Plettenberg Bay, and Tsitsikamma forests.</p>
-                    <div class="price">From R10,500 per person</div>
-                    <div style="margin-top:12px"><button class="btn" onclick="location.href='#contact'">Request Booking</button></div>
+                    <p><strong>From R10,500 per person</strong></p>
+                    <a href="#contact" class="btn">Request Booking</a>
                 </div>
-            </article>
+            </div>
 
-            <article class="card">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;height:160px">
-                    <img src="outside.jpg" alt="Cycad Villa patio" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
-                    <img src="kitchen.jpg" alt="Cycad Villa kitchen" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px">
-                </div>
-                <div class="card-body">
+            <div class="package" style="border-left-color: #FFB300;">
+                <img src="bush villa.jpg" alt="Sefapane Cycad Villa" loading="lazy">
+                <div class="package-info">
                     <h3>Sefapane Cycad Villa (Phalaborwa bushvillas at Kruger)</h3>
                     <p>Luxury villa stay for up to 8 guests near Kruger Park's Phalaborwa Gate.</p>
-                    <p style="font-size:.95rem;margin:6px 0"><strong>Option 1 (All-Inclusive):</strong> R3,200 pp/night. Includes game drive, snacks, refreshments, and lunch or dinner.</p>
-                    <p style="font-size:.95rem;margin:6px 0"><strong>Option 2 (Accommodation Only):</strong> R6,800 per night for the entire villa.</p>
-                    <div style="margin-top:12px"><button class="btn" onclick="location.href='#contact'">Request Dates</button></div>
+                    <ul>
+                        <li>Option 1 (All-Inclusive): R3,200 pp/night. Includes game drive, snacks, refreshments, and lunch or dinner.</li>
+                        <li>Option 2 (Accommodation Only): R6,800 per night for the entire villa.</li>
+                    </ul>
+                    <a href="#contact" class="btn" style="background: #FFB300; color: #333;">Request Dates</a>
                 </div>
-            </article>
+            </div>
+        </section>
 
-        </div>
-    </section>
+        <section id="global-destinations">
+            <h2>Where would you like to go?</h2>
+            <nav style="background: #00796B; padding: 5px 0;">
+                <a href="#">Africa</a>
+                <a href="#">Asia</a>
+                <a href="#">Europe</a>
+                <a href="#">Indian Ocean</a>
+                <a href="#">Mediterranean</a>
+                <a href="#">Middle East</a>
+                <a href="#">North America</a>
+                <a href="#">Oceania</a>
+                <a href="#">South America</a>
+            </nav>
+        </section>
 
-    <section id="global-regions" style="margin-top:22px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Where would you like to go?</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px">
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Africa</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Asia</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Europe</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Indian Ocean</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Mediterranean</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Middle East</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">North America</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">Oceania</div>
-            <div style="background:var(--sea-mid);color:white;padding:12px;border-radius:8px;text-align:center;font-weight:600;">South America</div>
-        </div>
-    </section>
+        <section id="inspiration">
+            <h2>Your Holidays Your Way</h2>
+            <nav style="background: #eee; padding: 10px 0; border-radius: 5px; text-align: left;">
+                <a href="#" style="color: #333; background: #ddd; margin-left: 10px;">R10k to R20k Budget</a>
+                <a href="#" style="color: #333; background: #ddd;">R5k and Under Budget</a>
+                <a href="#" style="color: #333; background: #ddd;">Adventure Travel</a>
+                <a href="#" style="color: #333; background: #ddd;">All Cruises</a>
+                <a href="#" style="color: #333; background: #ddd;">All Inclusive Maldives Holidays</a>
+                <a href="#" style="color: #333; background: #ddd;">All Inclusive Mauritius Holiday</a>
+                <a href="#" style="color: #333; background: #ddd;">All Inclusive Zanzibar Holiday</a>
+                <a href="#" style="color: #333; background: #ddd;">Beach Breaks</a>
+                <a href="#" style="color: #333; background: #ddd;">Bush Breaks</a>
+            </nav>
 
-    <section id="holidays-your-way" style="margin-top:22px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Your Holidays Your Way</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px">
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">R10k to R20k Budget</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">R5k and Under Budget</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">Adventure Travel</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">All Cruises</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">All Inclusive Maldives Holidays</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">All Inclusive Mauritius Holiday</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">All Inclusive Zanzibar Holiday</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">Beach Breaks</div>
-            <div style="background:#fff;padding:12px;border-radius:8px;text-align:center;font-weight:600;border:1px solid var(--foam);">Bush Breaks</div>
-        </div>
-    </section>
+            <div class="bali-specials">
+                <h3>Bali Travel Specials</h3>
+                <p>If you’re looking for a tropical holiday that’s all about adventure, relaxation and exploring, then consider one of our <strong>Bali specials</strong>. Our Bali special packages are filled with incredible experiences – like forest explorations, visiting spiritual temples, lazing on beautiful beaches and diving among manta rays - offering the perfect alternative holiday to the usual island escape.</p>
+                <p>Chat to one of our experienced travel consultants either on live chat or via Whatsapp, and let them find the perfect Bali special to suit your needs, budget and travel dreams! It’s time for adventure holiday in Bali!</p>
 
-    <section id="bali-specials" style="margin-top:22px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Bali Travel Specials</h2>
-        
-        <div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border-left:5px solid var(--coral);margin-bottom:30px;">
-            <p style="margin-top:0;">If you’re looking for a tropical holiday that’s all about adventure, relaxation and exploring, then consider one of our **Bali specials**. Our Bali special packages are filled with incredible experiences – like forest explorations, visiting spiritual temples, lazing on beautiful beaches and diving among manta rays - offering the perfect alternative holiday to the usual island escape.</p>
-            <p style="font-weight:600;margin-bottom:0;color:var(--sea-mid);">Chat to one of our experienced travel consultants either on live chat or via Whatsapp, and let them find the perfect Bali special to suit your needs, budget and travel dreams! It’s time for adventure holiday in Bali!</p>
-        </div>
-        
-        <div class="packages" style="grid-template-columns:1fr;">
-
-            <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
-                <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
-                    <h3 style="margin-top:0;color:var(--sea-deep);">3 Star Dewi Sri Hotel Bali</h3>
-                    <p style="margin:4px 0;"><strong>7 nights</strong> | Dates: 26 Jan 26 to 03 Feb 26 | Book by: 30 Nov 25</p>
-                    <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">R16,090 <span style="font-size:14px;color:var(--sea-deep);">per person sharing</span></div>
-                </div>
-                <div class="card-body" style="padding:0;display:block;">
-                    <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
-
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes & Highlights</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                <div class="bali-special-item">
+                    <h4>3 Star Dewi Sri Hotel Bali</h4>
+                    <p>7 nights | Dates: 26 Jan 26 to 03 Feb 26 | Book by: 30 Nov 25</p>
+                    <p style="font-size: 1.5em; font-weight: bold; color: #D84315;">R16,090 per person sharing</p>
+                    <div class="bali-special-details">
+                        <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
+                        <h5>Includes & Highlights</h5>
+                        <ul>
                             <li>Return flights from Johannesburg</li>
                             <li>Airport taxes</li>
                             <li>7 nights accommodation at the 3 star Dewi Sri Hotel in a standard room</li>
                             <li>Breakfast daily</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Excludes</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                        <h5>Excludes</h5>
+                        <ul>
                             <li>Return transfers</li>
                             <li>All meals not mentioned</li>
                             <li>Sightseeing</li>
                             <li>Items of a personal nature</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Hotel: Dewi Sri Hotel</summary>
-                        <p>Nestled within the serenity of verdant private gardens, our hotel provides international guests with a harmonious blend of sophisticated Balinese hospitality and service, coupled with modern amenities in the heart of Kuta. Our Superior Rooms offer views of either a lush grassy expanse or the pool, accompanied by an open-air pavilion known as a “balé,” where guests can indulge in rejuvenating massage treatments located near the pool and the swim-up pool bar. Adjacent to the pool deck, Mostic restaurant beckons with a menu featuring Western comfort food and classic Indonesian cuisine, catering to all tastes.</p>
-                        <a href="#" style="color:var(--coral);">Learn more about this hotel</a>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
-                        <p style="white-space:pre-wrap;font-size:0.9em;">Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
-                    </details>
-                    <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
+                        <div class="hotel-info">
+                            <h5>Hotel: Dewi Sri Hotel</h5>
+                            <p>Nestled within the serenity of verdant private gardens, our hotel provides international guests with a harmonious blend of sophisticated Balinese hospitality and service, coupled with modern amenities in the heart of Kuta. Our Superior Rooms offer views of either a lush grassy expanse or the pool, accompanied by an open-air pavilion known as a “balé,” where guests can indulge in rejuvenating massage treatments located near the pool and the swim-up pool bar. Adjacent to the pool deck, Mostic restaurant beckons with a menu featuring Western comfort food and classic Indonesian cuisine, catering to all tastes.</p>
+                            <a href="#" style="color: #00796B; font-weight: bold;">Learn more about this hotel</a>
+                        </div>
+                        <div style="font-size: 0.8em; margin-top: 15px;">
+                            <strong>Terms & Conditions</strong>
+                            <p>Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
+                        </div>
+                        <a href="#contact" class="enquire-btn">Make an Enquiry</a>
+                    </div>
                 </div>
-            </article>
 
-            <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
-                <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
-                    <h3 style="margin-top:0;color:var(--sea-deep);">4 Star Ubud Wana Resort</h3>
-                    <p style="margin:4px 0;"><strong>7 nights</strong> | Dates: 26 Jan 26 to 03 Feb 26 | Book by: 30 Nov 25</p>
-                    <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">R18,080 <span style="font-size:14px;color:var(--sea-deep);">per person sharing</span></div>
-                </div>
-                <div class="card-body" style="padding:0;display:block;">
-                    <p>Bali beckons with its breathtaking landscapes, from lush rice terraces to pristine beaches and serene temples, creating an idyllic paradise for nature enthusiasts and culture seekers alike.</p>
-
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes & Highlights</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                <div class="bali-special-item">
+                    <h4>4 Star Ubud Wana Resort</h4>
+                    <p>7 nights | Dates: 26 Jan 26 to 03 Feb 26 | Book by: 30 Nov 25</p>
+                    <p style="font-size: 1.5em; font-weight: bold; color: #D84315;">R18,080 per person sharing</p>
+                    <div class="bali-special-details">
+                        <p>Bali beckons with its breathtaking landscapes, from lush rice terraces to pristine beaches and serene temples, creating an idyllic paradise for nature enthusiasts and culture seekers alike.</p>
+                        <h5>Includes & Highlights</h5>
+                        <ul>
                             <li>Return flights from Johannesburg</li>
                             <li>Approximate Airport Taxes</li>
                             <li>7 Nights accommodation at the 4-star Ubud Wana Resort in a wana garden room</li>
                             <li>Breakfast daily</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Hotel: Ubud Wana Resort</summary>
-                        <p>Ubud Wana Resort is a hidden resort for peace conscious travelers to unwind and relax in the serenity of Nyuh Kuning hamlet of Ubud and experience in a pampered stay away from home. Designed with rooftop gardens in a two storied building to optimize the natural stunning beauty of the surroundings, the resort is split into a few wings with wide distance alleys in between, permitting tropical sunshine to illuminate the resort area and fresh cool breeze to rustle into the entire resort premises. The resort features three separate swimming pools across the resort area with different depths to cater to the excitements of kids, teenagers and adults severally.</p>
-                        <a href="#" style="color:var(--coral);">Learn more about this hotel</a>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
-                        <p style="white-space:pre-wrap;font-size:0.9em;">Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
-                    </details>
-                    <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
+                        <div class="hotel-info">
+                            <h5>Hotel: Ubud Wana Resort</h5>
+                            <p>Ubud Wana Resort is a hidden resort for peace conscious travelers to unwind and relax in the serenity of Nyuh Kuning hamlet of Ubud and experience in a pampered stay away from home. Designed with rooftop gardens in a two storied building to optimize the natural stunning beauty of the surroundings, the resort is split into a few wings with wide distance alleys in between, permitting tropical sunshine to illuminate the resort area and fresh cool breeze to rustle into the entire resort premises. The resort features three separate swimming pools across the resort area with different depths to cater to the excitements of kids, teenagers and adults severally.</p>
+                            <a href="#" style="color: #00796B; font-weight: bold;">Learn more about this hotel</a>
+                        </div>
+                        <div style="font-size: 0.8em; margin-top: 15px;">
+                            <strong>Terms & Conditions</strong>
+                            <p>Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
+                        </div>
+                        <a href="#contact" class="enquire-btn">Make an Enquiry</a>
+                    </div>
                 </div>
-            </article>
 
-            <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
-                <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
-                    <h3 style="margin-top:0;color:var(--sea-deep);">4 Star Bali Holiday (Kalapa Boutique Resort & Spa)</h3>
-                    <p style="margin:4px 0;"><strong>7 nights</strong> | Dates: 02 Dec 25 to 10 Dec 25 | Book by: 30 Nov 25</p>
-                    <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">R19,375 <span style="font-size:14px;color:var(--sea-deep);">per person sharing</span></div>
-                </div>
-                <div class="card-body" style="padding:0;display:block;">
-                    <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
-
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes & Highlights</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                <div class="bali-special-item">
+                    <h4>4 Star Bali Holiday (Kalapa Boutique Resort & Spa)</h4>
+                    <p>7 nights | Dates: 02 Dec 25 to 10 Dec 25 | Book by: 30 Nov 25</p>
+                    <p style="font-size: 1.5em; font-weight: bold; color: #D84315;">R19,375 per person sharing</p>
+                    <div class="bali-special-details">
+                        <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
+                        <h5>Includes & Highlights</h5>
+                        <ul>
                             <li>Return flights from Johannesburg</li>
                             <li>Airport taxes</li>
                             <li>7 nights accommodation at the 4 star Kalapa Boutique Resort & Spa in a deluxe bungalow</li>
                             <li>1 Free yoga session</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Excludes</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                        <h5>Excludes</h5>
+                        <ul>
                             <li>Return transfers</li>
                             <li>All meals not mentioned</li>
                             <li>Sightseeing</li>
                             <li>Items of a personal nature</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Hotel: Kalapa Boutique Resort & Spa</summary>
-                        <p>Kalapa Boutique Resort and Spa is a 20-minute drive from Nirwana Bali Golf Course, while Ngurah Rai International Airport, Tanah Lot Temple and the picturesque rice fields in Jatiluwih are all an hour's drive away. Elegantly fitted with wooden interiors, each spacious bungalow has a dining area and a seating area with sofas. Amenities include a flat-screen cable TV, CD/DVD player and a personal safe.</p>
-                        <a href="#" style="color:var(--coral);">Learn more about this hotel</a>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
-                        <p style="white-space:pre-wrap;font-size:0.9em;">Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
-                    </details>
-                    <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
+                        <div class="hotel-info">
+                            <h5>Hotel: Kalapa Boutique Resort & Spa</h5>
+                            <p>Kalapa Boutique Resort and Spa is a 20-minute drive from Nirwana Bali Golf Course, while Ngurah Rai International Airport, Tanah Lot Temple and the picturesque rice fields in Jatiluwih are all an hour's drive away. Elegantly fitted with wooden interiors, each spacious bungalow has a dining area and a seating area with sofas. Amenities include a flat-screen cable TV, CD/DVD player and a personal safe.</p>
+                            <a href="#" style="color: #00796B; font-weight: bold;">Learn more about this hotel</a>
+                        </div>
+                        <div style="font-size: 0.8em; margin-top: 15px;">
+                            <strong>Terms & Conditions</strong>
+                            <p>Prices are per person twin share, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
+                        </div>
+                        <a href="#contact" class="enquire-btn">Make an Enquiry</a>
+                    </div>
                 </div>
-            </article>
-            
-            <article class="card" style="margin-bottom:20px;display:grid;grid-template-columns:1fr;gap:20px;">
-                <div style="padding:14px;background:var(--foam);border-radius:12px;text-align:center;">
-                    <h3 style="margin-top:0;color:var(--sea-deep);">3 Star Dewi Sri Hotel Bali</h3>
-                    <p style="margin:4px 0;"><strong>7 nights</strong> | Dates: 02 Dec 25 to 10 Dec 25 | Book by: 30 Nov 25</p>
-                    <div style="font-size:24px;font-weight:700;color:var(--coral);margin-top:10px;">Enquire for Price (Per Single)</div> 
-                </div>
-                <div class="card-body" style="padding:0;display:block;">
-                    <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
 
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes & Highlights</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                <div class="bali-special-item">
+                    <h4>3 Star Dewi Sri Hotel Bali</h4>
+                    <p>7 nights | Dates: 02 Dec 25 to 10 Dec 25 | Book by: 30 Nov 25</p>
+                    <p style="font-size: 1.5em; font-weight: bold; color: #D84315;">Enquire for Price (Per Single)</p>
+                    <div class="bali-special-details">
+                        <p>Bali is an enchanting destination, perfect for romantic getaways, exciting solo adventures, or family vacations. The sheer beauty of Bali is rejuvenating, offering a refreshing experience for the soul. The captivating music, dance, and culture will pique your curiosity and leave lasting memories.</p>
+                        <h5>Includes & Highlights</h5>
+                        <ul>
                             <li>Return flights from Johannesburg</li>
                             <li>Airport taxes</li>
                             <li>7 nights accommodation at the 3 star Dewi Sri Hotel in a standard room</li>
                             <li>Breakfast daily</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Excludes</summary>
-                        <ul style="list-style-type:disc;padding-left:20px;">
+                        <h5>Excludes</h5>
+                        <ul>
                             <li>Return transfers</li>
                             <li>All meals not mentioned</li>
                             <li>Sightseeing</li>
                             <li>Items of a personal nature</li>
                         </ul>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Hotel: Dewi Sri Hotel</summary>
-                        <p>Nestled within the serenity of verdant private gardens, our hotel provides international guests with a harmonious blend of sophisticated Balinese hospitality and service, coupled with modern amenities in the heart of Kuta. Our Superior Rooms offer views of either a lush grassy expanse or the pool, accompanied by an open-air pavilion known as a “balé,” where guests can indulge in rejuvenating massage treatments located near the pool and the swim-up pool bar. Adjacent to the pool deck, Mostic restaurant beckons with a menu featuring Western comfort food and classic Indonesian cuisine, catering to all tastes.</p>
-                        <a href="#" style="color:var(--coral);">Learn more about this hotel</a>
-                    </details>
-                    <details style="margin-top:15px;">
-                        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
-                        <p style="white-space:pre-wrap;font-size:0.9em;">Prices are per single, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
-                    </details>
-                    <div style="margin-top:20px;text-align:right;"><button class="btn" onclick="location.href='#contact'">Make an Enquiry</button></div>
-                </div>
-            </article>
-            
-        </div>
-    </section>
-
-    <section id="blog-testimonials" style="margin-top:22px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Travel Inspiration & Reviews</h2>
-
-        <div style="display:grid;gap:12px;margin-top:12px">
-            <article class="blog-post">
-                <h3>The Best Places to Stay in Mozambique for an Unforgettable Holiday</h3>
-                <span style="color:var(--sea-mid);font-style:italic">27 May 2025</span>
-                <p style="margin-top:8px">Mozambique's coastline offers pristine beaches, diving, and island escapes — perfect for adding to your South African trip.</p>
-            </article>
-
-            <article class="blog-post">
-                <h3>Sun City: The Perfect Midweek Getaway for Valentines Day</h3>
-                <span style="color:var(--sea-mid);font-style:italic">19 January 2023</span>
-                <p style="margin-top:8px">A compact guide to enjoying a romantic midweek break at Sun City.</p>
-            </article>
-        </div>
-
-        <h3 style="margin-top:18px;color:var(--sea-deep)">Customer Testimonials</h3>
-        <div class="testimonials" style="margin-top:8px">
-            <div style="background:linear-gradient(180deg,#f8fffe,#ffffff);padding:14px;border-radius:10px;border:1px solid rgba(3,61,66,0.05)"><p>"I had a fantastic experience with Dianne while booking my flights. Communication was excellent."</p><strong style="display:block;text-align:right;color:var(--sea-mid)">Jessica, 27 May 2025</strong></div>
-            <div style="background:linear-gradient(180deg,#f8fffe,#ffffff);padding:14px;border-radius:10px;border:1px solid rgba(3,61,66,0.05)"><p>"They arranged our engagement weekend — everything was perfect!"</p><strong style="display:block;text-align:right;color:var(--sea-mid)">Jacqueline V, 12 June 2025</strong></div>
-            <div style="background:linear-gradient(180deg,#f8fffe,#ffffff);padding:14px;border-radius:10px;border:1px solid rgba(3,61,66,0.05)"><p>"Excellent service from Deirdre — highly recommended."</p><strong style="display:block;text-align:right;color:var(--sea-mid)">Shabnum P, 26 May 2025</strong></div>
-        </div>
-    </section>
-
-    <section id="custom-booking" style="margin-top:22px">
-        <div class="search-card">
-            <h2 style="margin-top:0;color:var(--sand)">Search Stays (Internal)</h2>
-            <p style="color:var(--sand); margin-top:-5px;">*This will submit an **enquiry** to check availability for your selected dates.*</p>
-            <form id="internalSearchForm" onsubmit="event.preventDefault(); internalSearch();" style="max-width:680px;margin:0 auto">
-                <label for="dest">Destination</label>
-                <input id="dest" name="dest" type="text" placeholder="e.g., Phalaborwa" required>
-
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;">
-                    <div>
-                        <label for="checkin">Check-in</label>
-                        <input id="checkin" name="checkin" type="date">
-                    </div>
-                    <div>
-                        <label for="checkout">Check-out</label>
-                        <input id="checkout" name="checkout" type="date">
-                    </div>
-                    <div>
-                        <label for="guests">Guests</label>
-                        <input id="guests" name="guests" type="number" min="1" value="2">
+                        <div class="hotel-info">
+                            <h5>Hotel: Dewi Sri Hotel</h5>
+                            <p>Nestled within the serenity of verdant private gardens, our hotel provides international guests with a harmonious blend of sophisticated Balinese hospitality and service, coupled with modern amenities in the heart of Kuta. Our Superior Rooms offer views of either a lush grassy expanse or the pool, accompanied by an open-air pavilion known as a “balé,” where guests can indulge in rejuvenating massage treatments located near the pool and the swim-up pool bar. Adjacent to the pool deck, Mostic restaurant beckons with a menu featuring Western comfort food and classic Indonesian cuisine, catering to all tastes.</p>
+                            <a href="#" style="color: #00796B; font-weight: bold;">Learn more about this hotel</a>
+                        </div>
+                        <div style="font-size: 0.8em; margin-top: 15px;">
+                            <strong>Terms & Conditions</strong>
+                            <p>Prices are per single, include discounts, and are subject to availability and rate of exchange changes. Offers above are a guide only and will vary depending on departure date, our guide price is based on the cheapest departure within the stipulated season and availability is correct at time of loading. Visas may be necessary and insurance is essential. Pentravel and Tour Operator terms and conditions apply, and may be found on our website. Offer can be removed at any time. Block out dates may apply. These packages are based on CASH price. E&OE.</p>
+                        </div>
+                        <a href="#contact" class="enquire-btn">Make an Enquiry</a>
                     </div>
                 </div>
-
-                <div style="margin-top:10px"><button class="btn" type="submit">Check Availability & Send Enquiry</button></div>
-            </form>
-
-            <div style="margin-top:12px;text-align:center">
-                <form action="https://www.payfast.co.za/eng/process" method="post" style="display:inline-block">
-                    <input type="hidden" name="merchant_id" value="27403727">
-                    <input type="hidden" name="merchant_key" value="">
-                    <input type="hidden" name="amount" value="100">
-                    <input type="hidden" name="item_name" value="Earthsign Travel Booking">
-                    <button class="btn" type="submit">Pay Now with PayFast</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" style="margin-top:22px">
-        <h2 style="text-align:center;color:var(--sea-deep)">Contact Us</h2>
-
-        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px">
-            <div class="host-card" style="max-width:360px">
-                <img src="professional-photo.jpg" alt="Glamour Maphanga" loading="lazy" style="width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,.12)">
-                <h3 style="margin:8px 0 4px;">Glamour Maphanga</h3>
-                <p style="margin:0">Host & bookings manager — Phalaborwa region</p>
-                <p style="margin-top:10px;font-weight:700">Phone: 073 740 9310</p>
             </div>
 
-            <form id="contact-form" style="max-width:560px;flex:1;min-width:260px;" aria-label="Contact form">
-                <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
-                <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
-                <input type="tel" name="phone" placeholder="Your phone" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
-                <textarea name="message" placeholder="How can we help?" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px"></textarea>
-                <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit">Send Message</button><button type="button" class="btn secondary" onclick="location.href='tel:0737409310'">Call Now</button></div>
+            <h3 style="margin-top: 30px;">Travel Inspiration & Reviews</h3>
+
+            <div class="inspiration-card">
+                <h4>The Best Places to Stay in Mozambique for an Unforgettable Holiday</h4>
+                <p style="color: #666; font-size: 0.8em;">27 May 2025</p>
+                <p>Mozambique's coastline offers pristine beaches, diving, and island escapes — perfect for adding to your South African trip.</p>
+            </div>
+
+            <div class="inspiration-card">
+                <h4>Sun City: The Perfect Midweek Getaway for Valentines Day</h4>
+                <p style="color: #666; font-size: 0.8em;">19 January 2023</p>
+                <p>A compact guide to enjoying a romantic midweek break at Sun City.</p>
+            </div>
+
+            <h3 style="margin-top: 30px;">Customer Testimonials</h3>
+
+            <div class="testimonial">
+                <blockquote>"I had a fantastic experience with Dianne while booking my flights. Communication was excellent."</blockquote>
+                <cite>Jessica, 27 May 2025</cite>
+            </div>
+
+            <div class="testimonial">
+                <blockquote>"They arranged our engagement weekend — everything was perfect!"</blockquote>
+                <cite>Jacqueline V, 12 June 2025</cite>
+            </div>
+
+            <div class="testimonial">
+                <blockquote>"Excellent service from Deirdre — highly recommended."</blockquote>
+                <cite>Shabnum P, 26 May 2025</cite>
+            </div>
+
+        </section>
+
+        <section id="internal-search" style="border-bottom: #ddd 1px solid;">
+            <h2>Search Stays (Internal)</h2>
+            <p>*This will submit an <strong>enquiry</strong> to check availability for your selected dates.*</p>
+            <form class="search-form">
+                <div>
+                    <label for="dest-internal">Destination</label>
+                    <input type="text" id="dest-internal" name="destination" placeholder="e.g., Cape Town, Bali" required>
+                </div>
+                <div>
+                    <label for="check-in-internal">Check-in</label>
+                    <input type="date" id="check-in-internal" name="check-in" required>
+                </div>
+                <div>
+                    <label for="check-out-internal">Check-out</label>
+                    <input type="date" id="check-out-internal" name="check-out" required>
+                </div>
+                <div>
+                    <label for="guests-internal">Guests</label>
+                    <input type="number" id="guests-internal" name="guests" min="1" value="1" required>
+                </div>
+                <button type="submit" class="btn search-btn">Check Availability & Send Enquiry</button>
             </form>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://payfast.za/pay/2349753" target="_blank" class="payfast-button" style="background: #3B92D0;">Pay Now with PayFast</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-info">
+            <h2>Contact Us</h2>
+            <img src="professional-photo.jpg" alt="Glamour Maphanga" loading="lazy" style="width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,.12)">
+            <h3 style="margin:8px 0 4px;">Glamour Maphanga</h3>
+            <p>Host & bookings manager — Phalaborwa region</p>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="icon">&#x260E;</span>
+                    <span>Phone: 073 740 9310</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">&#x1F4E7;</span>
+                    <a href="mailto:earthsignlistings@gmail.com" style="color: #333; text-decoration: none;">Send Message</a>
+                </div>
+            </div>
+
+            <a href="tel:0737409310" class="btn" style="background: #00796B; color: white;">Call Now</a>
+        </section>
+
+        <section id="travel-packages">
+            <h2>Travel Packages</h2>
+
+            <div class="package" style="border-left-color: #D84315; background: #ffe0b2;">
+                <div class="package-info" style="gap: 0;">
+                    <h3>Costa Rica Adventure with Costsaver</h3>
+                    <p>7 days | 02 May 26 to 03 Jul 26 | Book by 04 Dec 25</p>
+                    <p style="font-weight: bold; color: #D84315;">Discover bubbling mud pools, lush rainforests filled with wildlife, and the power of an active volcano on this thrilling journey. Begin in San José, the cultural heart of Costa Rica, then visit turtle nesting grounds and stroll high above the treetops on a rainforest sky walk for lasting memories.</p>
+
+                    <h4 style="color: #00796B;">Overview</h4>
+                    <ul>
+                        <li>7 Day Costsaver Guided Holiday</li>
+                        <li>6 Nights in cherry-picked hotels</li>
+                        <li>6 Breakfasts, 2 Dinners</li>
+                        <li>Luxury coach transport</li>
+                        <li>Expert Travel Director & driver</li>
+                        <li>Audio headsets for sightseeing</li>
+                        <li>Orientation tours</li>
+                        <li>Taxes, service charges & baggage handling</li>
+                    </ul>
+
+                    <h4 style="color: #00796B;">Includes</h4>
+                    <ul>
+                        <li>7 Day Costsaver Guided Holiday</li>
+                        <li>6 Nights in cherry-picked hotels</li>
+                        <li>6 Breakfasts, 2 Dinners</li>
+                        <li>Luxury air‑conditioned coach</li>
+                        <li>Travel Director and driver</li>
+                        <li>Orientation tours</li>
+                        <li>Audio headsets for sightseeing</li>
+                    </ul>
+
+                    <h4 style="color: #00796B;">Excludes</h4>
+                    <ul>
+                        <li>Flights</li>
+                        <li>Arrival/Departure transfers</li>
+                        <li>Visas & Travel Insurance</li>
+                        <li>Personal expenses</li>
+                        <li>Optional Experiences (additional cost)</li>
+                    </ul>
+
+                    <h4 style="color: #00796B;">Itinerary</h4>
+                    <ul>
+                        <li>Day 1: Arrive San José</li>
+                        <li>Day 2: San José – Monteverde</li>
+                        <li>Day 3: Monteverde sightseeing & free time</li>
+                        <li>Day 4: Monteverde – Arenal</li>
+                        <li>Day 5: Arenal full day sightseeing</li>
+                        <li>Day 6: Arenal free time</li>
+                        <li>Day 7: Return to San José</li>
+                    </ul>
+
+                    <div style="font-size: 0.8em; margin-top: 15px;">
+                        <strong>Terms & Conditions</strong>
+                        <p>Prices per person, twin share, discounts included. Subject to availability & exchange rate changes. Visas & travel insurance required. Full payment due 120 days prior to departure. Optional experiences available at additional cost. High‑season supplements may apply. Cash prices only. Other conditions may apply. E&OE.</p>
+                    </div>
+
+                    <h3 style="font-size: 1.8em; color: #D84315;">From R29,825</h3>
+                    <a href="#contact" class="enquire-btn">Enquire Now</a>
+                </div>
+            </div>
+        </section>
+
+
+        <footer style="background: #004D40; color: white; padding: 15px 0;">
+            <p>Earthsign Travel Agency | Phone: 073 740 9310 | Email: earthsignlistings@gmail.com</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">&copy; 2025 Earthsign Travel. All rights reserved.</p>
+        </footer>
+
+        <div style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 50px; font-size: 2em; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <a href="https://wa.me/27737409310" target="_blank" style="color: white; text-decoration: none;">💬</a>
         </div>
-
-    </section>
-
-    <section style="margin-top:22px">
-        <h3 style="text-align:center">Classic (Original) File Preview</h3>
-        <p style="text-align:center;color:#2b6b67">If you want the original site appearance, view the file below. This is a preview only — your live site remains the modern, fully-controlled version unless you choose to publish the classic HTML instead.</p>
-        <div style="max-width:1100px;margin:12px auto;">
-            <iframe src="/mnt/data/html.index" title="Original site preview" style="width:100%;height:640px;border:1px solid #ddd;border-radius:8px"></iframe>
-        </div>
-    </section>
-
-</main>
-
-<section id="packages" class="container" style="margin-top:40px;">
-    <h2 style="font-size:28px;font-weight:700;margin-bottom:20px;">Travel Packages</h2>
-
-    <div class="package-card" style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,0.08);margin-bottom:30px;">
-    <h3 style="margin-top:0;font-size:24px;color:var(--sea-mid);">Costa Rica Adventure with Costsaver</h3>
-    <p><strong>7 days</strong><br>
-    <strong>02 May 26 to 03 Jul 26</strong><br>
-    <strong>Book by 04 Dec 25</strong></p>
-
-    <p>Discover bubbling mud pools, lush rainforests filled with wildlife, and the power of an active volcano on this thrilling journey. Begin in San José, the cultural heart of Costa Rica, then visit turtle nesting grounds and stroll high above the treetops on a rainforest sky walk for lasting memories.</p>
-
-    <details style="margin-top:15px;">
-        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Overview</summary>
-        <p>7 Day Costsaver Guided Holiday<br>
-        6 Nights in cherry-picked hotels<br>
-        6 Breakfasts, 2 Dinners<br>
-        Luxury coach transport<br>
-        Expert Travel Director & driver<br>
-        Audio headsets for sightseeing<br>
-        Orientation tours<br>
-        Taxes, service charges & baggage handling</p>
-    </details>
-
-    <details style="margin-top:15px;">
-        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Includes</summary>
-        <ul>
-            <li>7 Day Costsaver Guided Holiday</li>
-            <li>6 Nights in cherry-picked hotels</li>
-            <li>6 Breakfasts, 2 Dinners</li>
-            <li>Luxury air‑conditioned coach</li>
-            <li>Travel Director and driver</li>
-            <li>Orientation tours</li>
-            <li>Audio headsets for sightseeing</li>
-        </ul>
-    </details>
-
-    <details style="margin-top:15px;">
-        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Excludes</summary>
-        <ul>
-            <li>Flights</li>
-            <li>Arrival/Departure transfers</li>
-            <li>Visas & Travel Insurance</li>
-            <li>Personal expenses</li>
-            <li>Optional Experiences (additional cost)</li>
-        </ul>
-    </details>
-
-    <details style="margin-top:15px;">
-        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Itinerary</summary>
-        <ol>
-            <li>Day 1: Arrive San José</li>
-            <li>Day 2: San José – Monteverde</li>
-            <li>Day 3: Monteverde sightseeing & free time</li>
-            <li>Day 4: Monteverde – Arenal</li>
-            <li>Day 5: Arenal full day sightseeing</li>
-            <li>Day 6: Arenal free time</li>
-            <li>Day 7: Return to San José</li>
-        </ol>
-    </details>
-
-    <details style="margin-top:15px;">
-        <summary style="cursor:pointer;font-weight:600;color:var(--coral);">Terms & Conditions</summary>
-        <p style="white-space:pre-wrap;">Prices per person, twin share, discounts included. Subject to availability & exchange rate changes. Visas & travel insurance required. Full payment due 120 days prior to departure. Optional experiences available at additional cost. High‑season supplements may apply. Cash prices only. Other conditions may apply. E&OE.</p>
-    </details>
-
-    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;">
-        <p style="font-size:20px;font-weight:700;color:var(--sea-deep);margin:0;">From <span style="color:var(--coral);">R29,825</span></p>
-        <button class="btn" style="padding:12px 20px;font-size:16px;">Enquire Now</button>
     </div>
-
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p style="margin:0">Earthsign Travel Agency | Phone: 073 740 9310 | Email: earthsignlistings@gmail.com</p>
-        <p style="margin:6px 0 0 0">&copy; 2025 Earthsign Travel. All rights reserved.</p>
-    </div>
-</footer>
-
-<script>
-    // Toggle between modern & classic styles
-    const modernBtn = document.getElementById('modernView');
-    const classicBtn = document.getElementById('classicView');
-    modernBtn.addEventListener('click', ()=>{
-        document.body.classList.remove('classic');
-        modernBtn.setAttribute('aria-pressed','true');
-        classicBtn.setAttribute('aria-pressed','false');
-    });
-    classicBtn.addEventListener('click', ()=>{
-        document.body.classList.add('classic');
-        modernBtn.setAttribute('aria-pressed','false');
-        classicBtn.setAttribute('aria-pressed','true');
-    });
-
-    // 🎯 UPDATED Internal search: now opens a mailto link with search criteria 🎯
-    function internalSearch(){
-        const dest = document.getElementById('dest').value.trim();
-        const checkin = document.getElementById('checkin').value || 'Not specified';
-        const checkout = document.getElementById('checkout').value || 'Not specified';
-        const guests = document.getElementById('guests').value;
-        
-        if(!dest){alert('Please enter a destination');return}
-        
-        const subject = encodeURIComponent('Availability Request: ' + dest);
-        const body = encodeURIComponent(
-            `Hello Earthsign Travel,
-            \nI would like to check the availability for a stay with the following details:
-            \nDestination: ${dest}
-            \nCheck-in Date: ${checkin}
-            \nCheck-out Date: ${checkout}
-            \nNumber of Guests: ${guests}
-            \n\nPlease reply to this email with options.`
-        );
-        
-        // Opens mail client
-        window.location.href = `mailto:earthsignlistings@gmail.com?subject=${subject}&body=${body}`;
-
-        // Optional: provide success message since mailto opens external app
-        alert('Thank you! Your availability enquiry has been prepared in your email app. Please send the email to complete the enquiry.');
-    }
-
-    // Contact form simple handler (opens mailto as fallback)
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-        e.preventDefault();
-        const name = this.name.value || '';
-        const email = this.email ? this.email.value : '';
-        const phone = this.phone ? this.phone.value : '';
-        const message = this.message ? this.message.value : '';
-        if(!name||!email||!message){alert('Please complete name, email and message');return}
-        const subject = encodeURIComponent('Website inquiry from ' + name);
-        const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`);
-        window.location.href = `mailto:earthsignlistings@gmail.com?subject=${subject}&body=${body}`;
-    });
-</script>
 </body>
+
 </html>
-<div id="earthsign-chat-widget">
-    <div id="chat-toggle-button">
-        <span class="chat-icon">💬</span>
-    </div>
-    <div id="chat-window" class="hidden">
-        <div id="chat-header">
-            Earthsign Assistant 🇿🇦
-        </div>
-        <div id="chat-body">
-            <div class="message bot-message">
-                Hello! I'm the Earthsign Assistant, your expert on South African travel. How can I help you discover your perfect safari, city, or coastal trip today?
-            </div>
-        </div>
-        <div id="chat-footer">
-            <input type="text" id="user-input" placeholder="Ask a question..." />
-            <button id="send-button">Send</button>
-        </div>
-    </div>
-</div>
-
-<style>
-/* CSS for the Chat Widget */
-#earthsign-chat-widget {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-family: Arial, sans-serif;
-    z-index: 1000;
-}
-
-#chat-toggle-button {
-    width: 60px;
-    height: 60px;
-    background-color: #008080; /* Earthsign Teal */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-#chat-toggle-button:hover {
-    background-color: #006666;
-}
-
-.chat-icon {
-    font-size: 28px;
-    line-height: 1;
-    color: white;
-}
-
-#chat-window {
-    width: 300px;
-    height: 400px;
-    background: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-#chat-window.hidden {
-    display: none;
-}
-
-#chat-header {
-    background-color: #008080;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-
-#chat-body {
-    flex-grow: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background-color: white;
-}
-
-.message {
-    padding: 8px 12px;
-    border-radius: 15px;
-    margin-bottom: 8px;
-    max-width: 80%;
-    line-height: 1.4;
-}
-
-.bot-message {
-    background-color: #e0f2f2; /* Light teal */
-    color: #333;
-    align-self: flex-start;
-    margin-right: auto;
-}
-
-.user-message {
-    background-color: #008080;
-    color: white;
-    align-self: flex-end;
-    margin-left: auto;
-}
-
-#chat-footer {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
-
-#user-input {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-#send-button {
-    background-color: #008080;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#send-button:hover {
-    background-color: #006666;
-}
-</style>
-
-<script>
-// JAVASCRIPT FOR CHAT FUNCTIONALITY
-document.addEventListener('DOMContentLoaded', () => {
-    const chatButton = document.getElementById('chat-toggle-button');
-    const chatWindow = document.getElementById('chat-window');
-    const chatBody = document.getElementById('chat-body');
-    const inputField = document.getElementById('user-input');
-    const sendButton = document.getElementById('send-button');
-
-    // Toggle Chat Window
-    chatButton.addEventListener('click', () => {
-        chatWindow.classList.toggle('hidden');
-        if (!chatWindow.classList.contains('hidden')) {
-            inputField.focus();
-        }
-    });
-
-    // Send message on button click
-    sendButton.addEventListener('click', sendMessage);
-
-    // Send message on Enter key
-    inputField.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-
-    // Function to add a message to the chat
-    function appendMessage(text, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', `${sender}-message`);
-        messageElement.textContent = text;
-        chatBody.appendChild(messageElement);
-        // Scroll to the bottom
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    // Main send logic
-    function sendMessage() {
-        const userInput = inputField.value.trim();
-        if (userInput === '') return;
-
-        appendMessage(userInput, 'user');
-        inputField.value = '';
-
-        // Generate Bot Response after a slight delay
-        setTimeout(() => {
-            const botResponse = getBotResponse(userInput);
-            appendMessage(botResponse, 'bot');
-        }, 800);
-    }
-
-    // CORE KNOWLEDGE & RESPONSE LOGIC (The "AI" part)
-    function getBotResponse(input) {
-        const lowerInput = input.toLowerCase();
-
-        // 1. Booking/Enquiry Keywords
-        if (lowerInput.includes('book') || lowerInput.includes('enquire') || lowerInput.includes('reserve')) {
-            return "Great! To help you book your custom trip, please provide: 1) What kind of trip (Safari, Coastal, or City)? 2) How many people? 3) Your desired travel dates. Our expert will then reach out to finalize the details.";
-        }
-
-        // 2. Pricing Keywords
-        if (lowerInput.includes('price') || lowerInput.includes('cost') || lowerInput.includes('affordable')) {
-            return "Our trips are highly personalized, from rugged bushveld adventures to luxury villa getaways, so prices vary. Please tell me your destination, duration, and desired accommodation level (budget, mid-range, or luxury) for an accurate estimate.";
-        }
-
-        // 3. Trip Type Keywords
-        if (lowerInput.includes('safari') || lowerInput.includes('big 5') || lowerInput.includes('bushveld')) {
-            return "Fantastic! Earthsign Travel excels in Big 5 safari and rugged bushveld adventures. Are you interested in a specific park or region, or would you like to explore our luxury villa getaway options?";
-        }
-
-        if (lowerInput.includes('coastal') || lowerInput.includes('beach') || lowerInput.includes('coastlines')) {
-            return "We specialize in pristine coastal trips and luxury villa getaways! Which coast interests you most: the Western Cape, the Garden Route, or KwaZulu-Natal?";
-        }
-        
-        if (lowerInput.includes('city') || lowerInput.includes('town')) {
-            return "Our personalized city packages cover vibrant South African destinations like Cape Town, Johannesburg, and Durban. Which city is on your bucket list?";
-        }
-
-        // 4. Contact/Human Handoff
-        if (lowerInput.includes('human') || lowerInput.includes('call') || lowerInput.includes('speak to')) {
-            return "I'm happy to escalate your query. You can reach our human travel experts directly via email at earthsignlistings@gmail.com or by phone at 073 740 9310. Thank you!";
-        }
-
-        // 5. General Greetings/Fallback
-        if (lowerInput.includes('hello') || lowerInput.includes('hi') || lowerInput.includes('hey')) {
-            return "Hello! I'm the Earthsign Assistant. We specialize in custom South African trips—safari, coastal, and city. What can I help you find?";
-        }
-
-        // Fallback Response
-        return "I apologize, I only have knowledge about Earthsign Travel's custom safari, coastal, and city packages. Could you try rephrasing your question about one of those topics, or would you like our human team's contact info?";
-    }
-});
-</script>
-
