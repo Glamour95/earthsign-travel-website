@@ -1,1 +1,4 @@
-
+# Simple configuration file for Earthsign Travel
+title: Earthsign Travel
+description: Your premier South African Travel Experts
+theme: jekyll-theme-minimal
