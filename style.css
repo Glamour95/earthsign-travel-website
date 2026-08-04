@@ -1,1 +1,365 @@
 
+/* ===============================
+   EARTHSIGN TRAVEL AGENCY
+   Luxury Theme
+==================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    color:#222;
+    background:#faf9f6;
+    overflow-x:hidden;
+
+}
+
+/* White marble background */
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),
+    url("https://www.transparenttextures.com/patterns/marble.png");
+
+    z-index:-2;
+
+}
+
+/* ================= HEADER ================= */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+/* Logo */
+
+.logo img{
+
+    height:65px;
+
+}
+
+/* Navigation */
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+nav a:hover{
+
+    color:#c9a227;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#c9a227;
+
+    transition:.3s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+/* Quote Button */
+
+.quote-btn{
+
+    text-decoration:none;
+
+    background:#c9a227;
+
+    color:white;
+
+    padding:13px 28px;
+
+    border-radius:40px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.quote-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    min-height:100vh;
+
+    background:
+
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+
+    url("images/hero.jpg") center center/cover;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 10%;
+
+}
+
+.hero-overlay{
+
+    max-width:900px;
+
+}
+
+.hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    color:white;
+
+    font-size:70px;
+
+    line-height:1.1;
+
+    margin-bottom:30px;
+
+}
+
+.hero p{
+
+    color:#f5f5f5;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    margin-bottom:45px;
+
+}
+
+/* Hero buttons */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.primary-btn{
+
+    background:#c9a227;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 36px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    background:#b48b18;
+
+}
+
+.secondary-btn{
+
+    background:white;
+
+    color:#222;
+
+    text-decoration:none;
+
+    padding:16px 36px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#f2f2f2;
+
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+
+    padding:110px 10%;
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+.hero h1{
+
+    font-size:50px;
+
+}
+
+nav{
+
+    display:none;
+
+}
+
+.quote-btn{
+
+    display:none;
+
+}
+
+.logo img{
+
+    height:55px;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.hero h1{
+
+    font-size:38px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+section{
+
+    padding:80px 7%;
+
+}
+
+}
