@@ -1108,3 +1108,69 @@ gap:15px;
 flex-wrap:wrap;
 
 }
+/*====================================
+SPECIAL OFFERS
+====================================*/
+
+.offers{
+    background:#faf9f6;
+}
+
+.offer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:35px;
+    margin-top:60px;
+}
+
+.offer-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:0.35s ease;
+}
+
+.offer-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+}
+
+.offer-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.offer-content{
+    padding:30px;
+}
+
+.offer-tag{
+    display:inline-block;
+    background:#d4af37;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.offer-content h3{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.offer-content p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.offer-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
