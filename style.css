@@ -1586,3 +1586,28 @@ display:none;
 }
 
 }
+/*==================================
+HEADER ON SCROLL
+===================================*/
+
+header{
+
+transition:.35s;
+
+}
+
+header.scrolled{
+
+padding:12px 8%;
+
+background:rgba(255,255,255,.97);
+
+box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+}
+
+header.scrolled .logo img{
+
+height:55px;
+
+}
