@@ -1705,3 +1705,66 @@ width:220px;
 margin-bottom:30px;
 
 }
+/*==================================
+SOCIAL
+===================================*/
+
+.social{
+
+background:#111;
+
+text-align:center;
+
+color:white;
+
+}
+
+.social h2{
+
+color:white;
+
+}
+
+.social p{
+
+color:#ddd;
+
+}
+
+.social-buttons{
+
+margin-top:40px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.social-buttons a{
+
+padding:18px 40px;
+
+background:#d4af37;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+transition:.3s;
+
+}
+
+.social-buttons a:hover{
+
+background:white;
+
+color:#111;
+
+}
