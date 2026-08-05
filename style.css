@@ -1247,3 +1247,94 @@ font-size:18px;
 font-weight:600;
 
 }
+/*==============================
+CONTACT
+==============================*/
+
+.contact{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+background:white;
+
+align-items:start;
+
+}
+
+.contact span{
+
+color:#d4af37;
+
+font-weight:600;
+
+text-transform:uppercase;
+
+letter-spacing:2px;
+
+}
+
+.contact h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:48px;
+
+margin:20px 0;
+
+}
+
+.contact p{
+
+line-height:1.8;
+
+color:#666;
+
+margin-bottom:20px;
+
+}
+
+.contact-form form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+
+padding:18px;
+
+border:1px solid #ddd;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+.contact-form textarea{
+
+resize:vertical;
+
+}
+
+@media(max-width:900px){
+
+.contact{
+
+grid-template-columns:1fr;
+
+}
+
+}
