@@ -731,3 +731,62 @@ grid-template-columns:1fr;
 }
 
 }
+/*==============================
+WHY CHOOSE US
+===============================*/
+
+.why-us{
+
+    background:#f8f8f8;
+
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.why-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    border-top:4px solid #d4af37;
+
+}
+
+.why-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.why-card h3{
+
+    font-family:'Playfair Display',serif;
+
+    margin-bottom:15px;
+
+    font-size:28px;
+
+}
+
+.why-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
