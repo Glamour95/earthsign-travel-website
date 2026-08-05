@@ -579,3 +579,74 @@ order:-1;
 }
 
 }
+/*====================================
+STATISTICS
+====================================*/
+
+.stats{
+
+    background:#1b1b1b;
+
+    color:white;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    text-align:center;
+
+    padding:70px 8%;
+
+}
+
+.stat-card{
+
+    padding:20px;
+
+}
+
+.stat-card h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:58px;
+
+    color:#d4af37;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    font-size:18px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:#ddd;
+
+}
+
+@media(max-width:900px){
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+}
