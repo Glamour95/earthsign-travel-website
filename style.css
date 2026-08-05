@@ -790,3 +790,44 @@ WHY CHOOSE US
     line-height:1.8;
 
 }
+/*==============================
+CALL TO ACTION
+===============================*/
+
+.cta{
+
+background:#1a1a1a;
+
+text-align:center;
+
+color:white;
+
+padding:100px 10%;
+
+}
+
+.cta h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:52px;
+
+margin-bottom:25px;
+
+}
+
+.cta p{
+
+max-width:850px;
+
+margin:auto;
+
+line-height:1.9;
+
+font-size:20px;
+
+margin-bottom:45px;
+
+color:#ddd;
+
+}
