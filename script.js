@@ -8,26 +8,16 @@ menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 
 });
-// Shrink Header
 
-window.addEventListener("scroll", function(){
+// Header Scroll
 
-const header = document.querySelector("header");
+window.addEventListener("scroll", () => {
 
-if(window.scrollY > 100){
-
-header.classList.add("scrolled");
-
-}else{
-
-header.classList.remove("scrolled");
-
-}
+    document.querySelector("header").classList.toggle("scrolled", window.scrollY > 80);
 
 });
-// Fade In Sections
 
-const sections = document.querySelectorAll("section");
+// Fade In Sections
 
 const observer = new IntersectionObserver((entries)=>{
 
@@ -43,8 +33,36 @@ entry.target.classList.add("show");
 
 });
 
-sections.forEach(section=>{
+document.querySelectorAll("section").forEach(section=>{
 
 observer.observe(section);
 
 });
+
+// Hero Slider
+
+const slides = document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+function showSlide(){
+
+slides.forEach(slide=>{
+
+slide.classList.remove("active");
+
+});
+
+currentSlide++;
+
+if(currentSlide >= slides.length){
+
+currentSlide = 0;
+
+}
+
+slides[currentSlide].classList.add("active");
+
+}
+
+setInterval(showSlide,5000);
