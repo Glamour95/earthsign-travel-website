@@ -1,3 +1,25 @@
-# Earthsign Travel Configuration
-title: Earthsign Travel
-description: Your premier South African Travel Experts
+# Earthsign Travel Agency Configuration
+
+title: Earthsign Travel Agency
+
+description: >
+  Earthsign Travel Agency provides South African getaways,
+  international travel packages, accommodation bookings,
+  flights, car hire, visa assistance, romantic getaways,
+  safari experiences and corporate travel solutions.
+
+url: "https://earthsigntravels.co.za"
+
+lang: en-ZA
+
+timezone: Africa/Johannesburg
+
+# GitHub Pages
+theme: null
+
+# Build settings
+markdown: kramdown
+
+# Exclude unnecessary files from the website build
+exclude:
+  - README.md
