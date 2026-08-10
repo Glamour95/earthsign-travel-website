@@ -1194,3 +1194,347 @@ footer a:hover {
     }
 
 }
+/* =========================================
+   CLIENT EXPERIENCES
+   Luxury Purple • Gold • Marble
+========================================= */
+
+.reviews-section {
+    position: relative;
+    padding: 100px 7%;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91, 42, 134, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(201, 162, 39, 0.10),
+            transparent 30%
+        ),
+        #faf9f7;
+    overflow: hidden;
+}
+
+/* Subtle marble effect */
+.reviews-section::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    right: -250px;
+    border-radius: 50%;
+    border: 1px solid rgba(91, 42, 134, 0.08);
+    box-shadow:
+        0 0 0 25px rgba(201, 162, 39, 0.025),
+        0 0 0 50px rgba(91, 42, 134, 0.025);
+    pointer-events: none;
+}
+
+.reviews-section .section-title {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.reviews-section .section-title span {
+    display: block;
+    color: #c9a227;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.reviews-section .section-title h2 {
+    color: #32144f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.reviews-section .section-title p {
+    color: #777777;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   REVIEW GRID
+========================================= */
+
+.reviews-grid {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* =========================================
+   REVIEW CARD
+========================================= */
+
+.review-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.98),
+            rgba(248,246,250,0.98)
+        );
+
+    padding: 35px 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(201, 162, 39, 0.28);
+
+    box-shadow:
+        0 12px 35px rgba(50, 20, 79, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    overflow: hidden;
+}
+
+
+/* Gold top line */
+
+.review-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8d6420,
+            #c9a227,
+            #e6cf7a,
+            #c9a227,
+            #8d6420
+        );
+}
+
+
+/* Purple decorative circle */
+
+.review-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -45px;
+    bottom: -45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(91, 42, 134, 0.10);
+
+    pointer-events: none;
+}
+
+
+/* Hover */
+
+.review-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(201, 162, 39, 0.65);
+
+    box-shadow:
+        0 20px 45px rgba(50, 20, 79, 0.15);
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.review-card .stars {
+    color: #c9a227;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   REVIEW TEXT
+========================================= */
+
+.review-card p {
+    position: relative;
+    z-index: 1;
+
+    color: #555555;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    font-style: italic;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   CLIENT NAME
+========================================= */
+
+.review-card h4 {
+    position: relative;
+    z-index: 1;
+
+    color: #32144f;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 3px;
+}
+
+
+/* Trip type */
+
+.review-card > span {
+    position: relative;
+    z-index: 1;
+
+    color: #a9851e;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   REVIEW CTA
+========================================= */
+
+.reviews-cta {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    margin-top: 50px;
+}
+
+.reviews-cta p {
+    color: #555555;
+
+    margin-bottom: 15px;
+
+    font-size: 15px;
+}
+
+.reviews-cta .btn {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c9a227,
+            #e0c45d
+        );
+
+    color: #ffffff;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(201, 162, 39, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.reviews-cta .btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(201, 162, 39, 0.35);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .reviews-section {
+        padding: 70px 6%;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-card {
+        padding: 30px 25px;
+    }
+
+    .reviews-section .section-title h2 {
+        font-size: 36px;
+    }
+
+}
