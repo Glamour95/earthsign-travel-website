@@ -8,12 +8,12 @@
    MOBILE MENU
 ========================================== */
 
-const menuToggle = document.getElementById("menu-toggle");
+const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("nav-menu");
 
-if (menuToggle && navMenu) {
+if (menuButton && navMenu) {
 
-    menuToggle.addEventListener("click", () => {
+    menuButton.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 
@@ -26,6 +26,7 @@ if (menuToggle && navMenu) {
         });
 
     });
+
 }
 
 
