@@ -71,6 +71,11 @@
     if (q) prefillInterest(q.getAttribute("data-quote"));
   });
 
+  try {
+    var interestParam = new URLSearchParams(window.location.search).get("interest");
+    if (interestParam) prefillInterest(interestParam);
+  } catch (err) { /* keep the form usable if the query string cannot be read */ }
+
   /* ---------- Packages ---------- */
   var grid = document.querySelector("[data-packages]");
   var filters = document.querySelector("[data-filters]");
@@ -228,5 +233,90 @@
           submit.disabled = false;
         });
     });
+  });
+
+  /* ---------- Quote-only menus (group outings and cruises) ----------
+     These catalogues never show a pay button. pricing stays null. */
+  function mountQuoteMenu(opts) {
+    var menuGrid = document.querySelector(opts.grid);
+    if (!menuGrid) return;
+    var menuFilters = document.querySelector(opts.filters);
+    var catalogue = null;
+
+    function quoteCard(item) {
+      var regions = catalogue.regions || {};
+      var includes = (item.includes || []).map(function (line) {
+        return "<li>" + esc(line) + "</li>";
+      }).join("");
+      var note = item.note ? '<p class="pkg-note">' + esc(item.note) + "</p>" : "";
+      var suits = item.suits ? "<p><strong>Suits: </strong>" + esc(item.suits) + "</p>" : "";
+      var tag = regions[item.region] || item.region || "";
+      return '<article class="pkg">' +
+        '<div class="pkg-media"><img src="' + esc(item.image || "images/logo-banner.webp") + '" alt="" loading="lazy">' +
+        (tag ? '<span class="pkg-tag">' + esc(tag) + "</span>" : "") + "</div>" +
+        '<div class="pkg-body">' +
+        '<div class="pkg-meta"><span class="chip">' + esc(item.duration || "") + "</span></div>" +
+        "<h3>" + esc(item.name) + "</h3>" +
+        "<p>" + esc(item.summary) + "</p>" +
+        suits +
+        (includes ? "<ul>" + includes + "</ul>" : "") +
+        note +
+        '<div class="pkg-quote">Request a quote and we will confirm what is available.</div>' +
+        '<div class="pkg-actions"><a class="btn btn--gold btn--sm" href="#enquire" data-quote="' + esc(item.name) + '">Request a quote</a></div>' +
+        "</div></article>";
+    }
+
+    function renderMenu() {
+      if (!catalogue) return;
+      var region = "";
+      if (menuFilters) region = new FormData(menuFilters).get("region") || "";
+      var list = (catalogue.items || []).filter(function (item) {
+        if (item.active === false) return false;
+        if (region && item.region !== region) return false;
+        return true;
+      });
+      menuGrid.innerHTML = list.length
+        ? list.map(quoteCard).join("")
+        : '<p class="empty">Nothing matches that filter. <a href="#enquire">Request a quote</a> and we will look for options.</p>';
+    }
+
+    fetch(opts.url, { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        catalogue = data;
+        catalogue.items = data[opts.key] || [];
+        var sel = menuFilters && menuFilters.querySelector('[name="region"]');
+        if (sel) {
+          Object.keys(data.regions || {}).forEach(function (key) {
+            var option = document.createElement("option");
+            option.value = key;
+            option.text = data.regions[key];
+            sel.add(option);
+          });
+        }
+        renderMenu();
+      })
+      .catch(function () {
+        menuGrid.innerHTML = '<p class="empty">The list could not load. Please <a href="#enquire">request a quote</a> and we will help.</p>';
+      });
+
+    if (menuFilters) {
+      menuFilters.addEventListener("change", renderMenu);
+      menuFilters.addEventListener("reset", function () { setTimeout(renderMenu, 0); });
+      menuFilters.addEventListener("submit", function (e) { e.preventDefault(); });
+    }
+  }
+
+  mountQuoteMenu({
+    grid: "[data-outings]",
+    filters: "[data-outing-filters]",
+    url: "data/group-outings.json",
+    key: "outings"
+  });
+  mountQuoteMenu({
+    grid: "[data-cruises]",
+    filters: "[data-cruise-filters]",
+    url: "data/cruises.json",
+    key: "cruises"
   });
 })();

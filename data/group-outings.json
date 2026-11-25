@@ -1,0 +1,212 @@
+{
+  "_readme": "Quote-only day trips for the group outings page. Leave pricing null. Do not add amounts.",
+  "regions": {
+    "kruger": "Kruger",
+    "lowveld": "Lowveld",
+    "panorama": "Panorama Route",
+    "cape-town": "Cape Town",
+    "durban": "Durban"
+  },
+  "outings": [
+    {
+      "id": "kruger-full-day-game-drive",
+      "active": true,
+      "name": "Kruger Full-Day Game Drive",
+      "region": "kruger",
+      "duration": "Full day",
+      "suits": "Teams, friends, celebrations and first-time visitors",
+      "summary": "An open-vehicle game drive in Kruger National Park, with pickup in Phalaborwa or at Phalaborwa Gate. Breakfast and a light lunch are served in the park, and you are dropped off again afterwards. It is a long day with an early start.",
+      "includes": [
+        "Pickup and drop-off in Phalaborwa or at the gate",
+        "Open safari vehicle and a field guide",
+        "Coffee, tea and breakfast",
+        "A light lunch and water",
+        "Blankets and ponchos",
+        "The park conservation fee"
+      ],
+      "note": "",
+      "image": "images/hero-leopard.webp",
+      "pricing": null
+    },
+    {
+      "id": "olifants-river-sundowner-cruise",
+      "active": true,
+      "name": "Olifants River Sundowner Cruise",
+      "region": "kruger",
+      "duration": "2 to 3 hours",
+      "suits": "Friends, celebrations and teams",
+      "summary": "A sunset boat safari on the Olifants River, a short drive from Phalaborwa, with wildlife viewing from the water. A morning cruise, or one with breakfast or a braai lunch, can be arranged if you book ahead.",
+      "includes": [
+        "The boat safari",
+        "Optional breakfast or braai-lunch cruise when booked ahead"
+      ],
+      "note": "Transport from Phalaborwa is arranged separately if you are not driving yourself.",
+      "image": "images/zanzibar-dhow.webp",
+      "pricing": null
+    },
+    {
+      "id": "blyde-canyon-boat-cruise",
+      "active": true,
+      "name": "Blyde Canyon Boat Cruise",
+      "region": "panorama",
+      "duration": "90 minutes",
+      "suits": "Friends, families, schools and celebrations",
+      "summary": "A guided cruise on the dam in Blyde River Canyon, out towards the tufa waterfall and views of the Three Rondavels. You may see hippo, crocodile and birds. It is a short outing unless you add viewpoints or lunch.",
+      "includes": [
+        "Guided boat cruise"
+      ],
+      "note": "Gate entry and transport from Phalaborwa are not included. Ask us if you want them arranged. Cruises can change with weather or water levels.",
+      "image": "images/retreat-valley.webp",
+      "pricing": null
+    },
+    {
+      "id": "panorama-route-day",
+      "active": true,
+      "name": "Panorama Route Day",
+      "region": "panorama",
+      "duration": "Full day",
+      "suits": "Friends, families and teams who want scenery",
+      "summary": "A full day from Phalaborwa along the Panorama Route: the Three Rondavels, Bourke's Luck Potholes, Lisbon Falls, God's Window and The Pinnacle. It is a scenery day, not a game drive.",
+      "includes": [
+        "Viewpoint entrance",
+        "A snack, one juice and water",
+        "Pickup and drop-off in Phalaborwa"
+      ],
+      "note": "Meals are not included.",
+      "image": "images/retreat-valley.webp",
+      "pricing": null
+    },
+    {
+      "id": "wildlife-rehabilitation-day",
+      "active": true,
+      "name": "Wildlife Rehabilitation Day",
+      "region": "lowveld",
+      "duration": "About 8 hours",
+      "suits": "Families, schools, clubs and teams",
+      "summary": "An educational day from Phalaborwa: a morning tour at a wildlife rehabilitation centre, lunch, then a visit to a reptile centre before the drive back. It is not a Kruger game drive.",
+      "includes": [
+        "Pickup and return in Phalaborwa",
+        "Entry to both visits",
+        "Lunch and water",
+        "A guide"
+      ],
+      "note": "Tell us if the group is a school, and which day you have in mind. Sunday visits depend on the holiday calendar.",
+      "image": "images/social-kruger-mpumalanga.webp",
+      "pricing": null
+    },
+    {
+      "id": "hoedspruit-wildlife-conservation-tour",
+      "active": true,
+      "name": "Hoedspruit Wildlife Conservation Tour",
+      "region": "lowveld",
+      "duration": "2 hours",
+      "suits": "Schools, clubs, families and teams",
+      "summary": "A two-hour conservation tour near Hoedspruit, with morning and afternoon departures. It works as a shorter outing or a half-day. Transport from Phalaborwa is arranged separately.",
+      "includes": [
+        "The two-hour tour"
+      ],
+      "note": "Book at least a day ahead. Meals can be added if you ask in time. We will confirm the day's times when you enquire.",
+      "image": "images/hero-leopard.webp",
+      "pricing": null
+    },
+    {
+      "id": "elephant-morning-experience",
+      "active": true,
+      "name": "Elephant Morning Experience",
+      "region": "lowveld",
+      "duration": "About 90 minutes",
+      "suits": "Friends, celebrations and families with children aged 6 and older",
+      "summary": "An early start near Hoedspruit. Coffee or tea on arrival, then about 90 minutes with a small elephant herd and their carers. Children under 6 cannot join.",
+      "includes": [
+        "The morning experience",
+        "Coffee, tea and biscuits"
+      ],
+      "note": "Transfers are arranged separately. The visit runs daily, weather permitting. Please book ahead.",
+      "image": "images/hero-leopard.webp",
+      "pricing": null
+    },
+    {
+      "id": "sunrise-balloon-flight",
+      "active": true,
+      "name": "Sunrise Balloon Flight",
+      "region": "lowveld",
+      "duration": "About 1 hour in the air",
+      "suits": "Celebrations, couples and smaller groups",
+      "summary": "Meet before sunrise near Hoedspruit. Tea or coffee while the balloon is prepared, about an hour over farmland and riverine forest, then sparkling wine and a flight certificate. Passengers need to stand for the hour and climb into the basket. The minimum height is about 1.2 m, children under 7 cannot fly, and the flight is not open to anyone who is pregnant.",
+      "includes": [
+        "The flight",
+        "Tea or coffee before you take off",
+        "Sparkling wine and a certificate after landing"
+      ],
+      "note": "Not available 19 Dec to 2 Jan. Transfers are arranged separately. Flights depend on the weather and are often confirmed the afternoon before.",
+      "image": "images/romantic-pool.webp",
+      "pricing": null
+    },
+    {
+      "id": "gorge-lift-and-big-swing",
+      "active": true,
+      "name": "Gorge Lift and Big Swing Adventure",
+      "region": "panorama",
+      "duration": "Half a day on site",
+      "suits": "Friends, celebrations and adventure groups",
+      "summary": "A visit in Graskop: a lift down into the gorge and forest, and the big swing if you want the thrill. A gentler visit is the lift and forest walk only. The swing is for ages 12 and up.",
+      "includes": [
+        "Site entrance",
+        "The lift and big swing, or the lift and forest walk if you prefer the milder option"
+      ],
+      "note": "Transport from Phalaborwa is arranged separately. The site is open every day, weather permitting. Cafés are on site.",
+      "image": "images/retreat-valley.webp",
+      "pricing": null
+    },
+    {
+      "id": "lowveld-team-building-day",
+      "active": true,
+      "name": "Lowveld Team-Building Day",
+      "region": "lowveld",
+      "duration": "Full day",
+      "suits": "Companies, teams and groups of friends",
+      "summary": "A Lowveld day near White River. The full outing combines kayaking, a quad trail, paintball or archery, and a braai lunch. Shorter combinations can be arranged.",
+      "includes": [
+        "The activities in the combination you choose",
+        "A braai meal on the full-day outing"
+      ],
+      "note": "Transport from Phalaborwa is arranged separately. Tell us your date so we can confirm the day is running.",
+      "image": "images/social-festive.webp",
+      "pricing": null
+    },
+    {
+      "id": "cape-town-icons-day",
+      "active": true,
+      "name": "Cape Town Icons Day",
+      "region": "cape-town",
+      "duration": "About 8 to 9 hours",
+      "suits": "Companies, incentive groups and friends in Cape Town, or flying in",
+      "summary": "A private day in Cape Town, shaped around the ferry timetable: Robben Island, city stops such as Bo-Kaap and the Castle of Good Hope, and the Table Mountain cableway when the weather allows. This is not a Lowveld day trip. Flights are arranged separately.",
+      "includes": [
+        "Collection and drop-off in Cape Town",
+        "Vehicle and guide for the road portion",
+        "Robben Island ferry, entrance and guided tour",
+        "Castle entrance",
+        "Table Mountain cableway ticket"
+      ],
+      "note": "Lunch is not included. The ferry and the cableway depend on weather and the day's operations. We confirm both before you travel.",
+      "image": "images/romantic-pool.webp",
+      "pricing": null
+    },
+    {
+      "id": "durban-sea-and-water-park-day",
+      "active": true,
+      "name": "Durban Sea and Water Park Day",
+      "region": "durban",
+      "duration": "Full day",
+      "suits": "Families, schools, friends and celebrations in Durban, or flying in",
+      "summary": "A day at Durban's sea-life aquarium and water park on a combined entry. The aquarium is open through the afternoon. Water-park days depend on the season, including school holidays. This is the entry itself, not a guided tour from Phalaborwa.",
+      "includes": [
+        "Combined entry to the aquarium and the water park"
+      ],
+      "note": "Flights, transport and meals are arranged separately. Cooler boxes and braais are not allowed inside. We confirm holiday opening days when you enquire.",
+      "image": "images/social-zanzibar.webp",
+      "pricing": null
+    }
+  ]
+}
