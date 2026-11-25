@@ -1,0 +1,184 @@
+{
+  "_readme": "Single source of truth for packages. The website cards AND the Yoco checkout function read this file. Prices are in CENTS (R1 = 100). Set pricing to null for quote-only trips. See README.md > Adding packages.",
+  "currency": "ZAR",
+  "regions": {
+    "kruger-mpumalanga": "Kruger & Mpumalanga",
+    "south-africa": "Rest of South Africa",
+    "indian-ocean": "Mozambique & Zanzibar",
+    "international": "International",
+    "test": "Test"
+  },
+  "budgets": {
+    "budget": "Budget",
+    "mid-range": "Mid-range",
+    "luxury": "Luxury"
+  },
+  "packages": [
+    {
+      "id": "yoco-test-package",
+      "active": true,
+      "test": true,
+      "name": "Yoco test package - R10 (test only)",
+      "region": "test",
+      "budget": "budget",
+      "nightsMin": 0,
+      "nightsMax": 0,
+      "lengthLabel": "Test only",
+      "summary": "A R10 test item used to show Yoco a working online checkout. Not a real trip. Use a Yoco test card while the site is in test mode.",
+      "includes": [
+        "Proves the online checkout works end to end",
+        "Pay a R5 deposit or the full R10"
+      ],
+      "image": "images/logo-banner.webp",
+      "pricing": {
+        "basis": "per package",
+        "full": 1000,
+        "deposit": 500
+      }
+    },
+    {
+      "id": "kruger-sanparks-self-drive",
+      "active": true,
+      "name": "Kruger self-drive in SANParks rest camps",
+      "region": "kruger-mpumalanga",
+      "budget": "budget",
+      "nightsMin": 2,
+      "nightsMax": 5,
+      "lengthLabel": "2 to 5 nights",
+      "summary": "Campsites, huts, safari tents and bungalows at Skukuza, Satara and Lower Sabie. We check live SANParks availability and book it for you.",
+      "includes": [
+        "Rest camp stay of your choice",
+        "Help planning your game-drive routes",
+        "Optional guided drives"
+      ],
+      "image": "images/safari.jpg",
+      "pricing": null
+    },
+    {
+      "id": "greater-kruger-tented-safari",
+      "active": true,
+      "name": "Greater Kruger tented safari",
+      "region": "kruger-mpumalanga",
+      "budget": "mid-range",
+      "nightsMin": 2,
+      "nightsMax": 4,
+      "lengthLabel": "2 to 4 nights",
+      "summary": "En-suite tents and bush camps in Timbavati, Manyeleti and Klaserie, with meals and twice-daily game drives.",
+      "includes": [
+        "Lodge or tented camp stay",
+        "Meals and game drives as per the lodge",
+        "Transfers on request"
+      ],
+      "image": "images/hero-leopard.webp",
+      "pricing": null
+    },
+    {
+      "id": "luxury-private-lodge",
+      "active": true,
+      "name": "Luxury private lodge safari",
+      "region": "kruger-mpumalanga",
+      "budget": "luxury",
+      "nightsMin": 2,
+      "nightsMax": 5,
+      "lengthLabel": "2 to 5 nights",
+      "summary": "Sabi Sand, Timbavati and Kapama lodges with all meals, drinks, game drives and guided walks. Ideal for honeymoons and milestone trips.",
+      "includes": [
+        "Private lodge suite",
+        "All meals and selected drinks",
+        "Two game drives a day"
+      ],
+      "image": "images/romantic-pool.webp",
+      "pricing": null
+    },
+    {
+      "id": "mpumalanga-panorama-weekend",
+      "active": true,
+      "name": "Mpumalanga Panorama Route weekend",
+      "region": "kruger-mpumalanga",
+      "budget": "mid-range",
+      "nightsMin": 2,
+      "nightsMax": 3,
+      "lengthLabel": "Weekend",
+      "summary": "God's Window, Blyde River Canyon and Graskop, with a comfortable stay and an easy drive from Gauteng.",
+      "includes": [
+        "Accommodation",
+        "Suggested route and stops",
+        "Add a Kruger day trip"
+      ],
+      "image": "images/retreat-valley.webp",
+      "pricing": null
+    },
+    {
+      "id": "zanzibar-for-two",
+      "active": true,
+      "name": "Zanzibar for two",
+      "region": "indian-ocean",
+      "budget": "mid-range",
+      "nightsMin": 5,
+      "nightsMax": 8,
+      "lengthLabel": "5 to 8 nights",
+      "summary": "Beach resort, sunset dhow cruise and Stone Town, with flights from Johannesburg arranged for you.",
+      "includes": [
+        "Return flights",
+        "Beachfront stay",
+        "Airport transfers"
+      ],
+      "image": "images/zanzibar-dhow.webp",
+      "pricing": null
+    },
+    {
+      "id": "mozambique-beach-escape",
+      "active": true,
+      "name": "Mozambique beach escape",
+      "region": "indian-ocean",
+      "budget": "budget",
+      "nightsMin": 3,
+      "nightsMax": 7,
+      "lengthLabel": "3 to 7 nights",
+      "summary": "Ponta do Ouro, Bilene or Vilanculos by road or air. Diving, dolphins and long, slow beach days.",
+      "includes": [
+        "Beach accommodation",
+        "Flights or self-drive plan",
+        "Activities on request"
+      ],
+      "image": "images/zanzibar-dhow.webp",
+      "pricing": null
+    },
+    {
+      "id": "bali-dubai-getaway",
+      "active": true,
+      "name": "Bali or Dubai getaway",
+      "region": "international",
+      "budget": "luxury",
+      "nightsMin": 6,
+      "nightsMax": 10,
+      "lengthLabel": "6 to 10 nights",
+      "summary": "Villas and rice terraces in Bali, or city lights and desert evenings in Dubai. Flights, stays and visas handled.",
+      "includes": [
+        "Return flights",
+        "Hotel or villa",
+        "Visa guidance"
+      ],
+      "image": "images/romantic-pool.webp",
+      "pricing": null
+    },
+    {
+      "id": "romantic-escape-close-to-home",
+      "active": true,
+      "name": "Romantic escape close to home",
+      "region": "south-africa",
+      "budget": "mid-range",
+      "nightsMin": 1,
+      "nightsMax": 3,
+      "lengthLabel": "1 to 3 nights",
+      "summary": "Winelands, mountain and bush hideaways for anniversaries, proposals and babymoons.",
+      "includes": [
+        "Couples' accommodation",
+        "Special touches on request",
+        "Dinner and spa add-ons"
+      ],
+      "image": "images/retreat-valley.webp",
+      "pricing": null
+    }
+  ]
+}
