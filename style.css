@@ -126,6 +126,29 @@ p { margin: 0 0 1em; }
 .service-card p { color: var(--muted); flex: 1; }
 .service-card a { color: var(--gold); font-weight: 600; text-decoration: none; }
 .service-card a:hover { text-decoration: underline; }
+.service-card .card-links { flex: 0 0 auto; margin: 0; }
+
+/* Dedicated service sections */
+.section.section--detail { padding: 3.25rem 0; }
+.service-detail {
+  max-width: 740px;
+  margin-inline: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.35rem 1.9rem;
+}
+.section--detail:not(.section--cream) .service-detail { background: var(--cream); }
+.service-detail h2 { margin-bottom: .55rem; }
+.service-detail .included { margin: .15rem 0 1.5rem; padding-left: 1.15rem; }
+.service-detail .included li { margin: .4rem 0; }
+.service-detail .included li::marker { color: var(--gold); }
+.detail-note { text-align: center; color: var(--muted); margin: 1.75rem auto 0; max-width: 640px; }
+.detail-note a { color: var(--gold); font-weight: 600; }
+.section--dark a:not(.btn) { color: var(--gold-light); text-underline-offset: .15em; }
+@media (min-width: 960px) {
+  .section.section--detail { padding: 4.25rem 0; }
+}
 
 /* Packages */
 .filters { display: grid; gap: .8rem; grid-template-columns: 1fr; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; margin-bottom: 1.6rem; }
