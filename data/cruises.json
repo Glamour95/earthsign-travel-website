@@ -1,0 +1,162 @@
+{
+  "_readme": "Quote-only MSC cruises. Leave pricing null. Do not add amounts. Sailings, cabins and availability are confirmed on request.",
+  "regions": {
+    "durban": "Departs Durban",
+    "cape-town": "Departs Cape Town"
+  },
+  "cruises": [
+    {
+      "id": "island-weekend-escape",
+      "active": true,
+      "name": "Island Weekend Escape",
+      "region": "durban",
+      "duration": "3 nights",
+      "suits": "A short island break for two adults sharing an inside cabin",
+      "summary": "MSC Armonia, 15 or 22 January 2027. Sail from Durban to Portuguese Island and back. You make your own way to Durban.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/zanzibar-dhow.webp",
+      "pricing": null
+    },
+    {
+      "id": "festive-mozambique-escape",
+      "active": true,
+      "name": "Festive Mozambique Escape",
+      "region": "durban",
+      "duration": "5 nights",
+      "suits": "A Christmas sailing for two adults sharing an inside cabin",
+      "summary": "MSC Armonia, 21 to 26 December 2026. Durban, Pomene, Portuguese Island and back to Durban, with Christmas Day at sea.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/social-festive.webp",
+      "pricing": null
+    },
+    {
+      "id": "new-year-indian-ocean-voyage",
+      "active": true,
+      "name": "New Year Indian Ocean Voyage",
+      "region": "durban",
+      "duration": "12 nights",
+      "suits": "A New Year voyage for two adults sharing an inside cabin",
+      "summary": "MSC Armonia, 26 December 2026 to 7 January 2027. Durban to Port Louis, La Possession and Portuguese Island, then back to Durban.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/social-zanzibar.webp",
+      "pricing": null
+    },
+    {
+      "id": "family-island-adventure",
+      "active": true,
+      "name": "Family Island Adventure",
+      "region": "durban",
+      "duration": "4 nights",
+      "suits": "Families. Two adults share an inside cabin, and children's places are confirmed when you enquire",
+      "summary": "MSC Armonia on 18 January 2027, with 11 and 25 January also possible. Durban to Pomene and back. Kids' clubs are on board.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "Tell us the ages of any children so we can confirm their places.",
+      "image": "images/social-december-for-two.webp",
+      "pricing": null
+    },
+    {
+      "id": "couples-balcony-getaway",
+      "active": true,
+      "name": "Couples Balcony Getaway",
+      "region": "durban",
+      "duration": "3 nights",
+      "suits": "Couples sharing a balcony cabin",
+      "summary": "MSC Armonia, 18 December 2026. A short sail from Durban to Portuguese Island and back, in a balcony cabin.",
+      "includes": [
+        "Balcony cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/romantic-pool.webp",
+      "pricing": null
+    },
+    {
+      "id": "phalaborwa-sail-away",
+      "active": true,
+      "name": "Phalaborwa Sail-Away",
+      "region": "durban",
+      "duration": "3 nights, plus a night in Durban",
+      "suits": "Guests travelling from Phalaborwa who want the island weekend with the travel arranged",
+      "summary": "The 3-night Portuguese Island cruise on MSC Armonia, 15 or 22 January 2027, in an inside cabin. We add a night in Durban before you sail, and transfers to the ship. Flights or the drive from Phalaborwa are part of the quote.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "A night in Durban before embarkation",
+        "Transfers to the ship",
+        "Meals on board in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities, evening entertainment, pools, gym and kids' clubs"
+      ],
+      "note": "Travel from Phalaborwa is confirmed with the cruise. We do not hold a sailing until MSC confirms it.",
+      "image": "images/logo-banner.webp",
+      "pricing": null
+    },
+    {
+      "id": "atlantic-coast-escape",
+      "active": true,
+      "name": "Atlantic Coast Escape",
+      "region": "cape-town",
+      "duration": "5 nights",
+      "suits": "Two adults sharing an inside cabin, sailing from Cape Town",
+      "summary": "MSC Armonia, 21 to 26 March 2027. Cape Town to Walvis Bay and back. Flights to Cape Town are quoted with the cruise if you are not already there.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/zanzibar-dhow.webp",
+      "pricing": null
+    },
+    {
+      "id": "first-timer-sea-break",
+      "active": true,
+      "name": "First-Timer Sea Break",
+      "region": "durban",
+      "duration": "2 nights",
+      "suits": "First-time cruisers who want a short sea break, two adults sharing an inside cabin",
+      "summary": "MSC Armonia, 12 to 14 February 2027. A two-night cruise that leaves Durban and returns to Durban, with no port stop. There is one departure this season.",
+      "includes": [
+        "Inside cabin for two adults sharing",
+        "Meals in the main restaurants and buffet",
+        "Tea, coffee and water with meals",
+        "Daytime activities and evening entertainment",
+        "Pools, gym and kids' clubs"
+      ],
+      "note": "",
+      "image": "images/social-zanzibar.webp",
+      "pricing": null
+    }
+  ]
+}

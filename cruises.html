@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSC Cruises | Earthsign Travel</title>
+<meta name="description" content="MSC cruises from Durban and Cape Town. Island weekends, a festive sailing, a New Year voyage and a short first cruise. Sailings confirmed on request.">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="MSC Cruises | Earthsign Travel">
+<meta property="og:description" content="MSC cruises from Durban and Cape Town. Sailings, cabins and availability confirmed on request.">
+<meta property="og:image" content="https://earthsigntravels.co.za/images/logo-banner.webp">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/logo-round.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="season-bar">Festive season (20 Dec to 4 Jan) books up first. <a href="index.html#season">Plan your dates now</a></div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="Earthsign Travel home">
+      <img src="images/logo-round.webp" alt="" width="46" height="46">
+      <span class="brand-name">EARTHSIGN<small>TRAVEL AGENCY</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="group-outings.html">Group outings</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="corporate.html">Corporate &amp; groups</a>
+      <a href="index.html#season">Festive season</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="btn btn--gold" href="#enquire">Get a quote</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" style="min-height:58vh">
+    <img class="hero-bg" src="images/zanzibar-dhow.webp" alt="">
+    <div class="container hero-inner">
+      <span class="eyebrow" style="color:#d9b56a">MSC cruises</span>
+      <h1>Sail from Durban or Cape Town.</h1>
+      <p class="lead">Short island breaks, a festive Mozambique sailing, a New Year voyage and a first cruise, on MSC Armonia. We confirm the sailing before anything is booked.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--gold" href="#menu">See the cruises</a>
+        <a class="btn btn--ghost-light" href="#enquire" data-quote="Cruises">Request a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" id="menu">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">This season</span>
+        <h2>Eight MSC cruises</h2>
+        <p>Filter by where the ship leaves from. Drinks packages, shore excursions, spa visits and Wi-Fi are not part of the cruise itself. Flights are arranged if you need them.</p>
+        <hr class="gold-rule">
+      </div>
+      <p class="page-note">Sailings, cabins and availability confirmed on request.</p>
+      <form class="filters filters--simple" data-cruise-filters aria-label="Filter cruises">
+        <div>
+          <label for="cruise-region">Departs from</label>
+          <select id="cruise-region" name="region"><option value="">All departures</option></select>
+        </div>
+        <button class="btn btn--outline btn--sm reset" type="reset">Clear</button>
+      </form>
+      <div class="grid packages-grid" data-cruises aria-live="polite">
+        <p class="empty">Loading cruises&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="enquire">
+    <div class="container enquire">
+      <div class="reveal">
+        <span class="eyebrow">Request a quote</span>
+        <h2>Tell us which sailing you like</h2>
+        <p>Share the cruise, who is travelling and where you are coming from. We check the cabin and come back to you, usually within one working day.</p>
+        <ul class="contact-list">
+          <li><span>WhatsApp</span><a href="https://wa.me/27737409310?text=Hello%20Earthsign%20Travel%2C%20I%27d%20like%20an%20MSC%20cruise%20quote." target="_blank" rel="noopener">+27 73 740 9310</a></li>
+          <li><span>Call</span><a href="tel:+27791994049">+27 79 199 4049</a></li>
+          <li><span>Email</span><a href="mailto:earthsignlistings@gmail.com">earthsignlistings@gmail.com</a></li>
+        </ul>
+      </div>
+      <form class="form" name="cruise-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-enquiry-form>
+        <input type="hidden" name="form-name" value="cruise-enquiry">
+        <input type="hidden" name="source" value="Cruises page">
+        <p class="hidden"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-row">
+          <div><label for="f-name">Full name</label><input id="f-name" name="name" required autocomplete="name"></div>
+          <div><label for="f-phone">Phone or WhatsApp</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        </div>
+        <div class="form-row">
+          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="f-interest">Cruise</label>
+            <select id="f-interest" name="interest" data-interest required>
+              <option value="">Choose one</option>
+              <option>Cruises</option>
+              <option>Island Weekend Escape</option>
+              <option>Festive Mozambique Escape</option>
+              <option>New Year Indian Ocean Voyage</option>
+              <option>Family Island Adventure</option>
+              <option>Couples Balcony Getaway</option>
+              <option>Phalaborwa Sail-Away</option>
+              <option>Atlantic Coast Escape</option>
+              <option>First-Timer Sea Break</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div><label for="f-dates">Preferred sailing</label><input id="f-dates" name="dates" placeholder="e.g. 15 January, or either island weekend"></div>
+          <div><label for="f-from">Travelling from</label><input id="f-from" name="from" placeholder="e.g. Phalaborwa or Durban"></div>
+        </div>
+        <div><label for="f-message">Who is travelling</label><textarea id="f-message" name="message" placeholder="Adults, children and ages, and whether you need flights."></textarea></div>
+        <button class="btn btn--gold" type="submit">Request a quote</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="images/logo-round.webp" alt="Earthsign Travel Agency logo" width="80" height="80" loading="lazy">
+        <p>MSC cruises, day trips, safaris and corporate travel, planned by a South African team who check the details for you.</p>
+        <p style="font-family:var(--serif);font-style:italic;color:#d9b56a;font-size:1.15rem">Explore. Inspire. Journey.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="group-outings.html">Group outings</a></li>
+          <li><a href="cruises.html">Cruises</a></li>
+          <li><a href="corporate.html">Corporate &amp; group travel</a></li>
+          <li><a href="index.html#enquire">Get a quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:earthsignlistings@gmail.com">earthsignlistings@gmail.com</a></li>
+          <li><a href="tel:+27791994049">Call +27 79 199 4049</a></li>
+          <li><a href="https://wa.me/27737409310?text=Hello%20Earthsign%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener">WhatsApp +27 73 740 9310</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/earthsign_listings_/" target="_blank" rel="noopener">Instagram @earthsign_listings_</a></li>
+          <li><a href="https://www.tiktok.com/@earthsigntravels" target="_blank" rel="noopener">TikTok @earthsigntravels</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> Earthsign Travel Agency. All rights reserved.</span>
+      <span>Card payments are processed securely by Yoco.</span>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/27737409310?text=Hello%20Earthsign%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener" aria-label="Chat with Earthsign Travel on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2l-1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6l-1-2.5c-.3-.7-.5-.6-.8-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.3-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg></a>
+<script src="script.js" defer></script>
+</body>
+</html>
