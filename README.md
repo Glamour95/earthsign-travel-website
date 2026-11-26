@@ -29,10 +29,12 @@ images/                    Logos and photos (see "Images" below)
 netlify.toml               Netlify deploy settings
 netlify/functions/
   create-checkout.js       Creates a Yoco checkout (server-side price lookup)
-  yoco-webhook.js          Receives Yoco payment events (signature verified)
+  yoco-webhook.js          Receives Yoco payment events
+  register-yoco-webhook.js Registers the webhook (no signing secret stored)
 scripts/
   test-checkout.js         Local test: creates one R10 Yoco TEST checkout
-  register-yoco-webhook.js Registers the webhook with Yoco and prints its secret
+  register-yoco-webhook.js Optional local register (secret omitted unless asked)
+  payments.test.js         Node tests for webhook confirmation and registration
 CNAME, _config.yml         GitHub Pages settings (only used until the domain moves to Netlify)
 ```
 
@@ -43,7 +45,7 @@ CNAME, _config.yml         GitHub Pages settings (only used until the domain mov
 3. The function looks up the price in `data/packages.json` (the browser can't change the amount), then calls `POST https://payments.yoco.com/api/checkouts` with the secret key from the `YOCO_SECRET_KEY` environment variable.
 4. Yoco returns a `redirectUrl`, and the customer pays on Yoco's secure page.
 5. Yoco sends the customer back to `payment-success.html`, `payment-cancelled.html` or `payment-failed.html`.
-6. Yoco also calls `/api/yoco-webhook` with a signed `payment.succeeded` event. That event, not the success page, is the real proof of payment. It is logged in Netlify (Functions > yoco-webhook > Logs).
+6. Yoco also calls `/api/yoco-webhook`. That call, not the success page, is what the site treats as payment. It is logged in Netlify (Functions > yoco-webhook > Logs). If `YOCO_WEBHOOK_SECRET` is set, the function checks Yoco's signature and then uses the event. If it is not set, the function does not trust the event's amount or metadata. It loads the checkout with `GET https://payments.yoco.com/api/checkouts/{id}` and the `YOCO_SECRET_KEY`, and logs only that response.
 
 **The secret key is never stored in this repository.** It lives only in Netlify's environment variables. The public key (`pk_test_...`) is not needed by this integration, because Yoco Checkout is a hosted page.
 
@@ -64,20 +66,34 @@ In Netlify: **Site configuration > Environment variables > Add a variable**.
 
 | Key | Value | Notes |
 | --- | --- | --- |
-| `YOCO_SECRET_KEY` | Your Yoco **secret test key** (`sk_test_...`) | From the Yoco portal: Sales > Payment gateway > API keys (test mode). Mark it as secret. |
-| `YOCO_WEBHOOK_SECRET` | The `whsec_...` secret from step 3 | |
+| `YOCO_SECRET_KEY` | Your Yoco **secret test key** (`sk_test_...`) | Checkout API secret key from the Yoco app (How to connect). Mark it as secret. This is not a Yoco API JWT. |
+| `YOCO_WEBHOOK_SECRET` (optional) | A `whsec_...` signing secret | Leave this unset. Payments are confirmed by reading the checkout back from Yoco. Set it only if you saved a signing secret and want signature checks as well. |
+| `ADMIN_SETUP_TOKEN` (optional) | Any private string | Only if you want to choose the token for step 3. If unset, the token is derived from `YOCO_SECRET_KEY`. |
 | `SITE_URL` (optional) | `https://earthsigntravels.co.za` | Forces the return links to the real domain. Netlify's own `URL` is used if this isn't set. |
 
 After adding or changing variables, go to **Deploys > Trigger deploy > Deploy site** so the functions pick them up.
 
 ### 3. Register the webhook with Yoco
-Run this once on your computer (Node 18 or later), using your secret test key:
+Do this once, after this version is deployed and `YOCO_SECRET_KEY` is already set in Netlify. You do not copy a `whsec_` secret anywhere.
+
+On your computer (Node 18 or later), print the admin token. This prints the token only, not the Yoco key:
 
 ```bash
-YOCO_SECRET_KEY=sk_test_xxx node scripts/register-yoco-webhook.js https://earthsigntravels.co.za/api/yoco-webhook
+YOCO_SECRET_KEY=sk_test_xxx node -e "console.log(require('crypto').createHmac('sha256', process.env.YOCO_SECRET_KEY).update('earthsign-register-webhook').digest('hex'))"
 ```
 
-(Use your `.netlify.app` address instead if the domain isn't on Netlify yet.) Copy the `secret` it prints (starts with `whsec_`) into Netlify as `YOCO_WEBHOOK_SECRET`, then redeploy. Yoco shows this secret only once.
+Use the same secret key that is stored in Netlify. Then:
+
+```bash
+curl -sS -X POST https://earthsigntravelagency.netlify.app/api/register-yoco-webhook \
+  -H "x-admin-token: PASTE_THE_HEX_HERE"
+```
+
+A new registration responds with `{"status":"registered","id":"sub_...","url":"https://earthsigntravelagency.netlify.app/api/yoco-webhook"}`. Running it again responds with `"status":"already_registered"` and the same id and url. The response never includes the signing secret.
+
+If you set `ADMIN_SETUP_TOKEN` in Netlify, send that value as `x-admin-token` instead of the hex above, and redeploy before calling so the function can see it.
+
+Yoco's register call is `POST https://payments.yoco.com/api/webhooks` with `Authorization: Bearer <secret key>`. A 403 from that call means the key was authenticated and webhook registration was refused. Details are under "Going live". The local script `scripts/register-yoco-webhook.js` is only a fallback, and it strips the signing secret before printing. Do not commit its output.
 
 ### 4. Test a payment
 1. Open the site on Netlify and find **"Yoco test package - R10 (test only)"** under Packages.
@@ -147,9 +163,19 @@ Each package looks like this:
 Once Yoco has verified the test integration:
 1. In the Yoco portal, copy your **live secret key** (`sk_live_...`).
 2. In Netlify, change `YOCO_SECRET_KEY` to the live key.
-3. Register the webhook again with the live key (step 3 above) and update `YOCO_WEBHOOK_SECRET` to the new secret.
+3. Redeploy, then register the webhook again with step 3. The admin token changes when the secret key changes, unless `ADMIN_SETUP_TOKEN` is set. Leave `YOCO_WEBHOOK_SECRET` unset.
 4. In `data/packages.json`, set the test package to `"active": false`. (The checkout function also refuses to charge the test package with a live key.)
 5. Trigger a redeploy. No code changes are needed.
+
+If registration returns 403, the Checkout secret key reached `POST https://payments.yoco.com/api/webhooks` and Yoco refused permission. A missing key, a public key, or a fake secret key on that same URL returns 401, with `"path": "/subscriptions"` in the body. That path is the gateway's name for `/api/webhooks`: listing webhooks returns `{ "subscriptions": [...] }` and ids look like `sub_...`. The [register webhook](https://developer.yoco.com/api-reference/checkout-api/webhooks/register-webhook) reference describes this 403 as lack of permission. The Checkout API uses `sk_test_` / `sk_live_` with `Authorization: Bearer`. The separate Yoco API endpoint `POST https://api.yoco.com/v1/webhooks/subscriptions/` expects a JWT with scopes `application/webhooks:read` and `application/webhooks:write`, and its forbidden docs also cover a business that has not finished onboarding.
+
+## Tests
+
+The site has no package install. Node's built-in test runner covers the payment functions:
+
+```bash
+node --test scripts/payments.test.js
+```
 
 ## Images
 
