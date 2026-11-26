@@ -1,7 +1,7 @@
 # Netlify deploy config for earthsigntravels.co.za
 # Static site + serverless functions for Yoco Checkout.
-# Secrets (YOCO_SECRET_KEY, YOCO_WEBHOOK_SECRET) are set in the Netlify UI,
-# never in this file.
+# YOCO_SECRET_KEY is set in the Netlify UI, never in this file.
+# YOCO_WEBHOOK_SECRET is optional. ADMIN_SETUP_TOKEN is optional.
 
 [build]
   publish = "."
@@ -20,6 +20,11 @@
 [[redirects]]
   from = "/api/yoco-webhook"
   to = "/.netlify/functions/yoco-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/register-yoco-webhook"
+  to = "/.netlify/functions/register-yoco-webhook"
   status = 200
 
 # Keep internal files private
